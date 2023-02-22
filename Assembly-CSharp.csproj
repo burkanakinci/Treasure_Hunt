@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\UI\Panels\MainMenuPanel.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons\UIBaseButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons\StartGameButton.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjectScripts\MinerData.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

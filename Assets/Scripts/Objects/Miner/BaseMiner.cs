@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseMiner : CustomBehaviour
 {
+    [SerializeField] protected MinerData m_MinerData; 
     #region Fields
     protected MinerStateMachine m_MinerStateMachine;
     public Animator m_MinerAnimator;
