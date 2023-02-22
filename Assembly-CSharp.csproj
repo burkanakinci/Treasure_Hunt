@@ -38,13 +38,19 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interfaces\IMinerState.cs" />
      <Compile Include="Assets\Scripts\Utilities\Utilities.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\OpponentMinerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Utilities\Constants.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\RunOpponentMinerState.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
      <Compile Include="Assets\Scripts\UI\Panels\UIPanel.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\Radar.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\PlayerMinerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\RunPlayerMinerState.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\BaseMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons\UIBaseButton.cs" />
@@ -55,6 +61,7 @@
      <Compile Include="Assets\Scripts\Interfaces\IPooledObject.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons\StartGameButton.cs" />
      <Compile Include="Assets\Scripts\UI\Panels\MainMenuPanel.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\OpponentMiner.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\Scripts\Managers\ObjectPool.cs" />
@@ -62,11 +69,13 @@
      <Compile Include="Assets\OtherPackages\Joystick Pack\Examples\JoystickSetterExample.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectScripts\LevelData.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\IdleOpponentMinerState.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectScripts\MinerData.cs" />
      <Compile Include="Assets\Scripts\BaseStateMachine.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Scripts\Managers\JsonConverter.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Scripts\Managers\Entities.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
      <Compile Include="Assets\Scripts\UI\Panels\FinishPanel.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
@@ -75,15 +84,6 @@
      <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Scripts\CustomBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\Radar.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\PlayerMinerStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\OpponentMinerStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\RunPlayerMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\OpponentMiner.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\IdleOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\RunOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\Managers\Entities.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
