@@ -11,6 +11,7 @@ public class UIManager : CustomBehaviour
     public override void Initialize()
     {
         GameManager.Instance.OnResetToMainMenu += OnResetToMainMenu;
+        GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
 
         m_UIPanels.ForEach(x =>
         {
@@ -45,9 +46,15 @@ public class UIManager : CustomBehaviour
     {
         GetPanel(UIPanelType.MainMenuPanel).ShowPanel();
     }
+
+    private void OnCountdownFinished()
+    {
+        GetPanel(UIPanelType.HudPanel).ShowPanel();
+    }
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;
+        GameManager.Instance.OnCountdownFinished -= OnCountdownFinished;
     }
     #endregion
 

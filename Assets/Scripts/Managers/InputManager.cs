@@ -30,7 +30,7 @@ public class InputManager : CustomBehaviour
     #region Events
     private void ResetToMainMenu()
     {
-        m_FloatingJoystick.gameObject.SetActive(true);
+        m_FloatingJoystick.gameObject.SetActive(false);
     }
     private void OnCountdownFinished()
     {

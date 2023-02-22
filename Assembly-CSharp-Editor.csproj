@@ -36,6 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\DOTween.dll" />
+    <Analyzer Include="D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\Editor\DOTweenEditor.dll" />
+  </ItemGroup>
+  <ItemGroup>
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Editor\FloatingJoystickEditor.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Editor\JoystickEditor.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Editor\DynamicJoystickEditor.cs" />
@@ -344,10 +348,10 @@
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+        <HintPath>D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-        <HintPath>D:\UnityProjects\TreasureHunt\Assets\Demigiant\DOTween\DOTween.dll</HintPath>
+        <HintPath>D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -769,9 +773,6 @@
     <Reference Include="PsdPlugin">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -780,9 +781,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -876,6 +874,12 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
