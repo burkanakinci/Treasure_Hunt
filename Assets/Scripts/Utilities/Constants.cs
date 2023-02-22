@@ -33,3 +33,10 @@ public enum UIPanelType
     HudPanel = 1,
     FinishPanel = 2,
 }
+
+public enum RadarType
+{
+    RadarLevel1=0,
+    RadarLevel2=1,
+    RadarLevel3=2,
+}

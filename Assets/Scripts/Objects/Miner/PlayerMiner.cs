@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerMiner : BaseMiner
 {
     [SerializeField] private Rigidbody2D m_PlayerMinerRB;
+    [SerializeField] private Radar m_PlayerMinerRadar;
     public override void Initialize()
     {
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
         GameManager.Instance.OnLevelCompleted += OnLevelCompleted;
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
         base.Initialize();
+
+        m_PlayerMinerRadar.Initialize();
     }
 
     private void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)

@@ -15,7 +15,6 @@ public class BaseMiner : CustomBehaviour
         m_MinerStateMachine=new MinerStateMachine(
             new List<IMinerState>()
         );
-        base.Initialize();
     }
 
     private void FixedUpdate()

@@ -374,7 +374,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -482,6 +482,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577122866}
   m_CullTransparentMesh: 1
+--- !u!114 &625398797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 625398797, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 1726500847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3949b3a0d4f697c4582f0ee91b14ca3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639368465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,22 +1378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1658632389}
     m_Modifications:
-    - target: {fileID: 154050683291030269, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 154050683291030269, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5291563570020196271, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
-      propertyPath: m_MinerData
+      propertyPath: m_PlayerMinerRadar
       value: 
-      objectReference: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
-    - target: {fileID: 5291563570020196271, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
-      propertyPath: m_PlayerMinerRB
-      value: 
-      objectReference: {fileID: 1726500851}
+      objectReference: {fileID: 625398797}
     - target: {fileID: 6997348750517187938, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
       propertyPath: m_Name
       value: PlayerMiner
@@ -1449,11 +1448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c402b1c34964a04cb40e7e8e5620c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1726500851 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 154050683291030269, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
-  m_PrefabInstance: {fileID: 1726500847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739415513
 GameObject:
   m_ObjectHideFlags: 0
