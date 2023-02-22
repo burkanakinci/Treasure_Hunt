@@ -36,7 +36,17 @@ public enum UIPanelType
 
 public enum RadarType
 {
-    RadarLevel1=0,
-    RadarLevel2=1,
-    RadarLevel3=2,
+    RadarLevel1 = 0,
+    RadarLevel2 = 1,
+    RadarLevel3 = 2,
+}
+public enum PlayerMinerStates
+{
+    IdlePlayerMinerState = 0,
+    RunPlayerMinerState = 1,
+}
+public enum OpponentMinerStates
+{
+    IdleOpponentMinerState = 0,
+    RunOpponentMinerState = 1,
 }

@@ -6,6 +6,11 @@ public class BaseStateMachine
     protected IMinerState m_CurrentState;
     protected List<IMinerState> m_States;
 
+    public BaseStateMachine(List<IMinerState> _states)
+    {
+        m_States = _states;
+    }
+
     public void LogicalUpdate()
     {
         if (m_CurrentState != null)

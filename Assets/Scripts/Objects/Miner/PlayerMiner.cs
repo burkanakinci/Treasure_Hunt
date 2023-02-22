@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class PlayerMiner : BaseMiner
 {
+    private PlayerMinerStateMachine m_PlayerMinerStateMachine;
     [SerializeField] private Rigidbody2D m_PlayerMinerRB;
     [SerializeField] private Radar m_PlayerMinerRadar;
     public override void Initialize()
     {
+        base.Initialize();
+
+        List<IMinerState> m_PlayerMinerStates = new List<IMinerState>();
+        m_PlayerMinerStates.Add(new IdlePlayerMinerState(this));
+        m_PlayerMinerStates.Add(new RunPlayerMinerState(this));
+
+        m_PlayerMinerStateMachine = new PlayerMinerStateMachine(m_PlayerMinerStates);
+
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
         GameManager.Instance.OnLevelCompleted += OnLevelCompleted;
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
-        base.Initialize();
 
         m_PlayerMinerRadar.Initialize();
     }
 
-    private void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)
+    public void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)
     {
-        m_MinerAnimator.SetFloat("Speed", _speed);
+        SetMinerAnimatorSpeedValue(_speed);
         SetMinerVelocity(new Vector2(_horizontalValue, _verticalValue));
-        if ((_horizontalValue == 0.0f) && (_verticalValue == 0.0f))
-        {
-            return;
-        }
-
-        m_MinerAnimator.SetFloat("Horizontal", _horizontalValue);
-        m_MinerAnimator.SetFloat("Vertical", _verticalValue);
-
+        SetMinerAnimatorValues(_horizontalValue, _verticalValue);
     }
 
     private void SetMinerVelocity(Vector2 _targetVelocity)
@@ -38,24 +39,18 @@ public class PlayerMiner : BaseMiner
     #region Events 
     private void OnResetToMainMenu()
     {
-
     }
     private void OnCountdownFinished()
     {
-        GameManager.Instance.InputManager.OnSwipeJoystick += MoveMinerByJoystick;
     }
     private void OnLevelCompleted()
     {
-        GameManager.Instance.InputManager.OnSwipeJoystick -= MoveMinerByJoystick;
     }
     private void OnLevelFailed()
     {
-        GameManager.Instance.InputManager.OnSwipeJoystick -= MoveMinerByJoystick;
     }
     private void OnDestroy()
     {
-
-        GameManager.Instance.OnCountdownFinished -= OnCountdownFinished;
     }
     #endregion
 }

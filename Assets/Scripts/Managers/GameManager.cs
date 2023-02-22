@@ -12,6 +12,7 @@ public class GameManager : CustomBehaviour
     public UIManager UIManager;
     public LevelManager LevelManager;
     public ObjectPool ObjectPool;
+    public Entities Entities;
     #endregion
     #region Actions
     public event Action OnResetToMainMenu;
@@ -37,6 +38,7 @@ public class GameManager : CustomBehaviour
         PlayerManager.Initialize();
         LevelManager.Initialize();
         ObjectPool.Initialize();
+        Entities.Initialize();
     }
 
     private void Start()
