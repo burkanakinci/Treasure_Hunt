@@ -6,7 +6,8 @@ public class ObjectTags
 {
     public const string GROUND = "Ground";
     public const string STONE = "Stone";
-    public const string TREE = "TREE";
+    public const string TREE = "Tree";
+    public const string RADAR = "Radar";
 }
 
 public class PooledObjectTags
@@ -15,8 +16,8 @@ public class PooledObjectTags
     public const string STONE = "Stone";
     public const string TREE = "Tree";
     public const string TREASURE_GENERATOR = "TreasureGenerator";
-    public const string UP_LOG= "UpLog";
-    public const string SIDE_LOG= "SideLog";
+    public const string UP_LOG = "UpLog";
+    public const string SIDE_LOG = "SideLog";
 }
 public class UIAnimationStates
 {
@@ -33,6 +34,7 @@ public enum ObjectsLayer
     Stone = 7,
     Tree = 8,
     Log = 9,
+    Radar = 10,
 }
 
 public enum ListOperation
@@ -50,9 +52,17 @@ public enum UIPanelType
 
 public enum RadarType
 {
+    RadarNull=-1,
     RadarLevel1 = 0,
     RadarLevel2 = 1,
     RadarLevel3 = 2,
+}
+
+public enum TriggerType
+{
+    Enter,
+    Exit,
+    Stay,
 }
 public enum PlayerMinerStates
 {
@@ -90,7 +100,7 @@ public enum ActiveParents
 {
     TreasureGenerator = 0,
     Tree = 1,
-    Stone=2,
-    Ground=3,
-    Log=4,
+    Stone = 2,
+    Ground = 3,
+    Log = 4,
 }

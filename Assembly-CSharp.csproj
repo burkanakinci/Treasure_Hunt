@@ -75,7 +75,7 @@
      <Compile Include="Assets\Scripts\BaseStateMachine.cs" />
      <Compile Include="Assets\Scripts\LevelDataCreator\LevelDataCreator.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-     <Compile Include="Assets\Scripts\Managers\JsonConverter.cs" />
+     <Compile Include="Assets\Scripts\Utilities\JsonConverter.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
      <Compile Include="Assets\Scripts\Managers\Entities.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
@@ -85,11 +85,12 @@
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-     <Compile Include="Assets\Scripts\CustomBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
      <Compile Include="Assets\Scripts\Objects\TreasureGenerator.cs" />
      <Compile Include="Assets\Scripts\Objects\PooledObject.cs" />
      <Compile Include="Assets\Scripts\Objects\TreeObstacle.cs" />
      <Compile Include="Assets\Scripts\Objects\Stone.cs" />
+     <Compile Include="Assets\Scripts\Objects\TreasureRadar.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

@@ -35,6 +35,20 @@ public class PlayerMiner : BaseMiner
     {
         m_PlayerMinerRB.velocity = _targetVelocity * m_MinerData.MinerDefaultSpeed;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(ObjectTags.RADAR))
+        {
+            m_PlayerMinerRadar.SetRadar(other.GetComponent<TreasureRadar>().TreasureRadarType, TriggerType.Enter);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(ObjectTags.RADAR))
+        {
+            m_PlayerMinerRadar.SetRadar(other.GetComponent<TreasureRadar>().TreasureRadarType, TriggerType.Exit);
+        }
+    }
 
     #region Events 
     private void OnResetToMainMenu()

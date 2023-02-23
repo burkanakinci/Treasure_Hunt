@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f220e1027d2a8b54186d3edef30e995e, type: 3}
   m_Name: MinerData
   m_EditorClassIdentifier: 
-  m_MinerDefaultSpeed: 2
+  m_MinerDefaultSpeed: 4
   m_MinerFastSpeed: 2
