@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OpponentMiner : BaseMiner
 {
+    public OpponentDifficulty OpponentCurrentDifficulty;
     private OpponentMinerStateMachine m_OpponentStateMachine;
     public override void Initialize()
     {

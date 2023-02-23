@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - StoneSingle
+  - StoneVertical
+  - StoneHorizontal
+  - LogHorizontal
+  - LogVertical
+  - TreeGreen
+  - TreeYellow
+  - TreeRed
+  - TreeOrange
+  - TreasureGenerator
   layers:
   - Default
   - TransparentFX

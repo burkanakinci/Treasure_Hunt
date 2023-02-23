@@ -2,6 +2,17 @@ public class Constants
 {
     public const string PLAYER_DATA = "PlayerData";
 }
+public class ObjectTags
+{
+    public const string GROUND = "Ground";
+    public const string SINGLE_STONE = "StoneSingle";
+    public const string HORIZONTAL_STONE = "StoneHorizontal";
+    public const string VERTICAL_STONE = "StoneVertical";
+    public const string GREEN_TREE = "TreeGreen";
+    public const string YELLOW_TREE = "TreeYellow";
+    public const string ORANGE_TREE = "TreeOrange";
+    public const string RED_TREE = "TreeRed";
+}
 
 public class PooledObjectTags
 {
@@ -10,9 +21,7 @@ public class UIAnimationStates
 {
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
 }
-public class ObjectTags
-{
-}
+
 public enum PlayerStates
 {
 }
@@ -49,4 +58,11 @@ public enum OpponentMinerStates
 {
     IdleOpponentMinerState = 0,
     RunOpponentMinerState = 1,
+}
+
+public enum OpponentDifficulty
+{
+    Easy,
+    Normal,
+    Hard,
 }

@@ -84,6 +84,9 @@
      <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Scripts\CustomBehaviour.cs" />
+     <Compile Include="Assets\Scripts\LevelDataCreator\LevelCreatorEditor.cs" />
+     <Compile Include="Assets\Scripts\LevelDataCreator\LevelDataCreator.cs" />
+     <Compile Include="Assets\Scripts\Objects\TreasureGenerator.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
