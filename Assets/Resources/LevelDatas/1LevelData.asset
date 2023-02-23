@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 1LevelData
   m_EditorClassIdentifier: 
   GroundPositions:
-  - {x: 0, y: 0}
-  - {x: 32.409668, y: 0}
   - {x: 32.409668, y: 45}
+  - {x: 32.409668, y: 0}
   - {x: 0, y: 45}
+  - {x: 0, y: 0}
   StonePositions:
   - {x: -1.6, y: -15.8}
   - {x: 16.6, y: -16.1}

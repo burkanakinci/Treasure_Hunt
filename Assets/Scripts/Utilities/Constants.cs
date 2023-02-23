@@ -15,6 +15,8 @@ public class PooledObjectTags
     public const string STONE = "Stone";
     public const string TREE = "Tree";
     public const string TREASURE_GENERATOR = "TreasureGenerator";
+    public const string UP_LOG= "UpLog";
+    public const string SIDE_LOG= "SideLog";
 }
 public class UIAnimationStates
 {
@@ -90,4 +92,5 @@ public enum ActiveParents
     Tree = 1,
     Stone=2,
     Ground=3,
+    Log=4,
 }

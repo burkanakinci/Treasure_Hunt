@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LevelManager : CustomBehaviour
 {
@@ -95,11 +96,13 @@ public class LevelManager : CustomBehaviour
         }
     }
 
-
+    List<Vector2> m_TempSameYPositions = new List<Vector2>();
+    List<Vector2> m_TempSameXPositions = new List<Vector2>();
     private void SpawnGrounds()
     {
         for (int _groundCount = m_LevelData.GroundPositions.Count - 1; _groundCount >= 0; _groundCount--)
         {
+
             GameManager.Instance.ObjectPool.SpawnFromPool(
                 (PooledObjectTags.GROUND),
                 (m_LevelData.GroundPositions[_groundCount]),
@@ -107,7 +110,76 @@ public class LevelManager : CustomBehaviour
                 (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
             );
 
-            
+            List<Vector2> m_TempSameYPositions = new List<Vector2>();
+            List<Vector2> m_TempSameXPositions = new List<Vector2>();
+
+            m_TempSameYPositions.AddRange(m_LevelData.GroundPositions.FindAll((_ground) => _ground.y == m_LevelData.GroundPositions[_groundCount].y));
+            m_TempSameYPositions = m_TempSameYPositions.OrderBy(_sameY => _sameY.x).ToList();
+
+            m_TempSameXPositions.AddRange(m_LevelData.GroundPositions.FindAll((_ground) => _ground.x == m_LevelData.GroundPositions[_groundCount].x));
+            m_TempSameXPositions = m_TempSameXPositions.OrderBy(_sameX => _sameX.y).ToList();
+
+            if ((m_LevelData.GroundPositions[_groundCount]) == m_TempSameYPositions[0])
+            {
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.GROUND),
+                    (m_LevelData.GroundPositions[_groundCount] - new Vector2(32.40967f, 0.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+                );
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.SIDE_LOG),
+                    (m_LevelData.GroundPositions[_groundCount] - new Vector2(15.45483f, 0.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Log))
+                );
+            }
+            if ((m_LevelData.GroundPositions[_groundCount]) == m_TempSameYPositions[m_TempSameYPositions.Count - 1])
+            {
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.GROUND),
+                    (m_LevelData.GroundPositions[_groundCount] + new Vector2(32.40967f, 0.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+                );
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.SIDE_LOG),
+                    (m_LevelData.GroundPositions[_groundCount] + new Vector2(15.45483f, 0.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Log))
+                );
+            }
+
+            if ((m_LevelData.GroundPositions[_groundCount]) == m_TempSameXPositions[0])
+            {
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.GROUND),
+                    (m_LevelData.GroundPositions[_groundCount] - new Vector2(0.0f, 45.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+                );
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.UP_LOG),
+                    (m_LevelData.GroundPositions[_groundCount] - new Vector2(0.0f, 22.31f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Log))
+                );
+            }
+            if ((m_LevelData.GroundPositions[_groundCount]) == m_TempSameXPositions[m_TempSameXPositions.Count - 1])
+            {
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.GROUND),
+                    (m_LevelData.GroundPositions[_groundCount] + new Vector2(0.0f, 45.0f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+                );
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.UP_LOG),
+                    (m_LevelData.GroundPositions[_groundCount] + new Vector2(0.0f, 22.31f)),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Log))
+                );
+            }
         }
     }
 
