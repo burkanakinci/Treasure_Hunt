@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: efcf914ac94aad94ca0ced51fb51292e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,8 +96,12 @@ PrefabInstance:
       value: GreenTree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2914919775595453582, guid: 42e3ee6406b8bec44af252ec239e8abc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914919775595453582, guid: 42e3ee6406b8bec44af252ec239e8abc, type: 3}
       propertyPath: m_TagString
-      value: TreeGreen
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 8730548970696754465, guid: 42e3ee6406b8bec44af252ec239e8abc, type: 3}
       propertyPath: m_RootOrder

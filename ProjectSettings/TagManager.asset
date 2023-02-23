@@ -5,16 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - StoneSingle
-  - StoneVertical
-  - StoneHorizontal
   - LogHorizontal
   - LogVertical
-  - TreeGreen
-  - TreeYellow
-  - TreeRed
-  - TreeOrange
   - TreasureGenerator
+  - Tree
+  - Stone
   layers:
   - Default
   - TransparentFX
@@ -23,9 +18,9 @@ TagManager:
   - Water
   - UI
   - Miner
-  - 
-  - 
-  - 
+  - Environment/Stone
+  - Environment/Tree
+  - Environment/Log
   - 
   - 
   - 

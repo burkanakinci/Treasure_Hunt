@@ -5,17 +5,16 @@ public class Constants
 public class ObjectTags
 {
     public const string GROUND = "Ground";
-    public const string SINGLE_STONE = "StoneSingle";
-    public const string HORIZONTAL_STONE = "StoneHorizontal";
-    public const string VERTICAL_STONE = "StoneVertical";
-    public const string GREEN_TREE = "TreeGreen";
-    public const string YELLOW_TREE = "TreeYellow";
-    public const string ORANGE_TREE = "TreeOrange";
-    public const string RED_TREE = "TreeRed";
+    public const string STONE = "Stone";
+    public const string TREE = "TREE";
 }
 
 public class PooledObjectTags
 {
+    public const string GROUND = "Ground";
+    public const string STONE = "Stone";
+    public const string TREE = "Tree";
+    public const string TREASURE_GENERATOR = "TreasureGenerator";
 }
 public class UIAnimationStates
 {
@@ -28,6 +27,10 @@ public enum PlayerStates
 public enum ObjectsLayer
 {
     Default = 0,
+    Miner = 6,
+    Stone = 7,
+    Tree = 8,
+    Log = 9,
 }
 
 public enum ListOperation
@@ -65,4 +68,26 @@ public enum OpponentDifficulty
     Easy,
     Normal,
     Hard,
+}
+
+public enum TreeType
+{
+    Green = 0,
+    Orange = 1,
+    Red = 2,
+    Yellow = 3
+}
+public enum StoneType
+{
+    SingleStone = 0,
+    HorizontalStone = 1,
+    VerticalStone = 2,
+}
+
+public enum ActiveParents
+{
+    TreasureGenerator = 0,
+    Tree = 1,
+    Stone=2,
+    Ground=3,
 }

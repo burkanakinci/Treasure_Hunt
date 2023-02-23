@@ -33,12 +33,12 @@ public class GameManager : CustomBehaviour
     public override void Initialize()
     {
         JsonConverter.Initialize();
+        PlayerManager.Initialize();
         InputManager.Initialize();
         UIManager.Initialize();
-        PlayerManager.Initialize();
-        LevelManager.Initialize();
         ObjectPool.Initialize();
         Entities.Initialize();
+        LevelManager.Initialize();
     }
 
     private void Start()

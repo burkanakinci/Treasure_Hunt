@@ -7,16 +7,16 @@ public class ObjectPool : CustomBehaviour
     [System.Serializable]
     public class Pool
     {
-        public string prefabTag;
-        public GameObject pooledPrefab;
-        public int size = 1;
-        public Transform prefabParent;
+        public string PrefabTag;
+        public GameObject PooledPrefab;
+        public int SpawnedSize = 1;
+        public Transform PrefabParent;
     }
     public List<Pool> pools = new List<Pool>();
     public Dictionary<string, Queue<IPooledObject>> poolDictionary;
 
-    private IPooledObject spawnOnPool;
-    private IPooledObject tempSpawned;
+    private IPooledObject m_SpawnOnPool;
+    private IPooledObject m_TempSpawned;
 
     public override void Initialize()
     {
@@ -27,15 +27,15 @@ public class ObjectPool : CustomBehaviour
             Queue<IPooledObject> activeOnPool = new Queue<IPooledObject>();
             Queue<IPooledObject> objectsOnPool = new Queue<IPooledObject>();
 
-            for (int j = 0; j < pools[i].size; j++)
+            for (int j = 0; j < pools[i].SpawnedSize; j++)
             {
-                tempSpawned = Instantiate(pools[i].pooledPrefab, pools[i].prefabParent).GetComponent<IPooledObject>();
-                tempSpawned.GetGameObject().gameObject.SetActive(false);
-                tempSpawned.GetGameObject().Initialize();
-                tempSpawned.SetPooledTag(pools[i].prefabTag);
-                objectsOnPool.Enqueue(tempSpawned);
+                m_TempSpawned = Instantiate(pools[i].PooledPrefab, pools[i].PrefabParent).GetComponent<IPooledObject>();
+                m_TempSpawned.GetGameObject().gameObject.SetActive(false);
+                m_TempSpawned.GetGameObject().Initialize();
+                m_TempSpawned.SetPooledTag(pools[i].PrefabTag);
+                objectsOnPool.Enqueue(m_TempSpawned);
             }
-            poolDictionary.Add(pools[i].prefabTag, objectsOnPool);
+            poolDictionary.Add(pools[i].PrefabTag, objectsOnPool);
 
         }
     }
@@ -51,17 +51,17 @@ public class ObjectPool : CustomBehaviour
 
         if (poolDictionary[_prefabTag].Count > 0)
         {
-            spawnOnPool = poolDictionary[_prefabTag].Dequeue();
+            m_SpawnOnPool = poolDictionary[_prefabTag].Dequeue();
         }
         else
         {
             for (int i = pools.Count - 1; i >= 0; i--)
             {
-                if (pools[i].prefabTag == _prefabTag)
+                if (pools[i].PrefabTag == _prefabTag)
                 {
-                    spawnOnPool = Instantiate(pools[i].pooledPrefab, pools[i].prefabParent).GetComponent<IPooledObject>();
-                    spawnOnPool.GetGameObject().Initialize();
-                    spawnOnPool.SetPooledTag(pools[i].prefabTag);
+                    m_SpawnOnPool = Instantiate(pools[i].PooledPrefab, pools[i].PrefabParent).GetComponent<IPooledObject>();
+                    m_SpawnOnPool.GetGameObject().Initialize();
+                    m_SpawnOnPool.SetPooledTag(pools[i].PrefabTag);
                     break;
                 }
             }
@@ -71,19 +71,19 @@ public class ObjectPool : CustomBehaviour
 
         if (_position != null)
         {
-            spawnOnPool.GetGameObject().transform.position = _position;
+            m_SpawnOnPool.GetGameObject().transform.position = _position;
         }
         if (_rotation != null)
         {
-            spawnOnPool.GetGameObject().transform.rotation = _rotation;
+            m_SpawnOnPool.GetGameObject().transform.rotation = _rotation;
         }
 
-        spawnOnPool.GetGameObject().transform.SetParent(_parent);
+        m_SpawnOnPool.GetGameObject().transform.SetParent(_parent);
 
-        spawnOnPool.GetGameObject().gameObject.SetActive(true);
-        spawnOnPool.OnObjectSpawn();
+        m_SpawnOnPool.GetGameObject().gameObject.SetActive(true);
+        m_SpawnOnPool.OnObjectSpawn();
 
-        return spawnOnPool;
+        return m_SpawnOnPool;
     }
 
     public void AddObjectPool(string _prefabTag, IPooledObject _pooledObject)

@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\BaseMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Scripts\LevelDataCreator\LevelCreatorEditor.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons\UIBaseButton.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\IdleOpponentMinerState.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectScripts\MinerData.cs" />
      <Compile Include="Assets\Scripts\BaseStateMachine.cs" />
+     <Compile Include="Assets\Scripts\LevelDataCreator\LevelDataCreator.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Scripts\Managers\JsonConverter.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
@@ -84,9 +86,10 @@
      <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Scripts\CustomBehaviour.cs" />
-     <Compile Include="Assets\Scripts\LevelDataCreator\LevelCreatorEditor.cs" />
-     <Compile Include="Assets\Scripts\LevelDataCreator\LevelDataCreator.cs" />
      <Compile Include="Assets\Scripts\Objects\TreasureGenerator.cs" />
+     <Compile Include="Assets\Scripts\Objects\PooledObject.cs" />
+     <Compile Include="Assets\Scripts\Objects\TreeObstacle.cs" />
+     <Compile Include="Assets\Scripts\Objects\Stone.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
