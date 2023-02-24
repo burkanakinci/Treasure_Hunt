@@ -12,6 +12,7 @@ public class LevelDataCreator : MonoBehaviour
     [HideInInspector] public LevelData TempLevelData;
     private string m_SavePath;
     [HideInInspector] public int LevelNumber;
+    [SerializeField] private List<OpponentDifficulty> m_Opponents;
     #region ObjectsOnScene
     private List<GameObject> m_GroundsOnScene;
     private List<TreeObstacle> m_TreesOnScene;
@@ -31,6 +32,8 @@ public class LevelDataCreator : MonoBehaviour
         SetTreeData();
 
         SetTreasureGeneratorData();
+
+        SetOpponentData();
 
         AssetDatabase.CreateAsset(TempLevelData, m_SavePath);
         AssetDatabase.SaveAssets();
@@ -86,6 +89,12 @@ public class LevelDataCreator : MonoBehaviour
             TempLevelData.TreasureGeneratorRefreshRates.Add(_treasureGenerator.GenerateRefreshRate);
         }
         );
+    }
+
+    private void SetOpponentData()
+    {
+        TempLevelData.Opponents = new List<OpponentDifficulty>();
+        TempLevelData.Opponents.AddRange(m_Opponents);
     }
     #endregion
 

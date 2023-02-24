@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpponentMiner : BaseMiner
+public class OpponentMiner : BaseMiner, PooledObject
 {
     public OpponentDifficulty OpponentCurrentDifficulty;
     private OpponentMinerStateMachine m_OpponentStateMachine;

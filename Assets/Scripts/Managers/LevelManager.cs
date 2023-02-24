@@ -186,6 +186,22 @@ public class LevelManager : CustomBehaviour
         }
     }
 
+    private OpponentMiner m_TempSpawnedOpponent;
+    private void SpawnOpponent()
+    {
+        for (int _opponentCount = m_LevelData.Opponents.Count - 1; _opponentCount >= 0; _opponentCount--)
+        {
+            m_TempSpawnedOpponent = GameManager.Instance.ObjectPool.SpawnFromPool(
+                (PooledObjectTags.OPPONENT),
+                (Vector2.zero),
+                (Quaternion.identity),
+                (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Opponent))
+            ).GetGameObject().GetComponent<OpponentMiner>();
+
+            m_TempSpawnedOpponent.OpponentCurrentDifficulty = m_LevelData.Opponents[_opponentCount];
+        }
+    }
+
     #endregion
 
     #region Events

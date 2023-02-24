@@ -18,6 +18,7 @@ public class PooledObjectTags
     public const string TREASURE_GENERATOR = "TreasureGenerator";
     public const string UP_LOG = "UpLog";
     public const string SIDE_LOG = "SideLog";
+    public const string OPPONENT= "Opponent";
 }
 public class UIAnimationStates
 {
@@ -103,4 +104,5 @@ public enum ActiveParents
     Stone = 2,
     Ground = 3,
     Log = 4,
+    Opponent=5,
 }

@@ -14,6 +14,6 @@ public class LevelData : ScriptableObject
     public List<TreeType> TreeTypes;
     public List<Vector2> TreasureGeneratorPositions;
     public List<float> TreasureGeneratorRefreshRates;
-    public int OpponentCount;
+    public List<OpponentDifficulty> Opponents;
     #endregion
 }

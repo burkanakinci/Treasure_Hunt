@@ -2177,6 +2177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TempLevelData: {fileID: 11400000, guid: 875954ca9f462ca478fc7df49d1c2a52, type: 2}
   LevelNumber: 1
+  m_Opponents: 00000000010000000200000000000000
 --- !u!4 &1999123427
 Transform:
   m_ObjectHideFlags: 0
