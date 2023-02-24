@@ -16,5 +16,6 @@ public class LevelData : ScriptableObject
     public List<float> TreasureGeneratorRefreshRates;
     public List<float> TreasureGeneratorDelays;
     public List<Vector2> TreasureGeneratorRefreshPositions;
+    public int OpponentCount;
     #endregion
 }

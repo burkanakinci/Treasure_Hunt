@@ -35,24 +35,43 @@ public class PlayerMiner : BaseMiner
     {
         m_PlayerMinerRB.velocity = _targetVelocity * m_MinerData.MinerDefaultSpeed;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_PlayerMinerRadar.SetRadar(other.GetComponent<TreasureRadar>().TreasureRadarType, TriggerType.Enter);
+            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            m_PlayerMinerRadar.SetRadar(m_TempTriggedTreasureRadar.TreasureRadarType, TriggerType.Enter);
+            if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            {
+                m_TempTriggedTreasureRadar.CanHunt = false;
+                StartTreasureHuntCoroutine();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_PlayerMinerRadar.SetRadar(other.GetComponent<TreasureRadar>().TreasureRadarType, TriggerType.Exit);
+            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            m_PlayerMinerRadar.SetRadar(m_TempTriggedTreasureRadar.TreasureRadarType, TriggerType.Exit);
+            if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            {
+                m_TempTriggedTreasureRadar.CanHunt = true;
+                StopCoroutine(m_TreasureHuntCoroutine);
+            }
         }
+    }
+    protected override void TreasureHunt()
+    {
+        base.TreasureHunt();
+        m_PlayerMinerRadar.SetRadar(RadarType.RadarLevel1, TriggerType.Exit);
     }
 
     #region Events 
     private void OnResetToMainMenu()
     {
+        m_MinerCollectedTreasure = 0;
     }
     private void OnCountdownFinished()
     {

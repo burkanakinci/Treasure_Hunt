@@ -6,8 +6,10 @@ public class BaseMiner : CustomBehaviour
 {
     [SerializeField] protected MinerData m_MinerData;
     #region Fields
-    public Animator m_MinerAnimator;
+    [SerializeField] protected Animator m_MinerAnimator;
     protected int m_MinerCollectedTreasure;
+    protected TreasureRadar m_TempTriggedTreasureRadar;
+    protected Coroutine m_TreasureHuntCoroutine;
     #endregion
 
     public void SetMinerAnimatorValues(float _horizontalValue, float _verticalValue)
@@ -23,5 +25,25 @@ public class BaseMiner : CustomBehaviour
     public void SetMinerAnimatorSpeedValue(float _speed)
     {
         m_MinerAnimator.SetFloat("Speed", _speed);
+    }
+
+    protected void StartTreasureHuntCoroutine()
+    {
+        if (m_TreasureHuntCoroutine != null)
+        {
+            StopCoroutine(m_TreasureHuntCoroutine);
+        }
+        m_TreasureHuntCoroutine = StartCoroutine(TreasureHuntCoroutine());
+    }
+
+    protected IEnumerator TreasureHuntCoroutine()
+    {
+        yield return new WaitForSeconds(m_MinerData.TreasureDuration);
+        TreasureHunt();
+    }
+
+    protected virtual void TreasureHunt()
+    {
+        m_MinerCollectedTreasure++;
     }
 }

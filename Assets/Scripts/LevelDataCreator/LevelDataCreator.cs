@@ -80,14 +80,12 @@ public class LevelDataCreator : MonoBehaviour
         TempLevelData.TreasureGeneratorPositions = new List<Vector2>();
         TempLevelData.TreasureGeneratorRefreshRates = new List<float>();
         TempLevelData.TreasureGeneratorDelays = new List<float>();
-        TempLevelData.TreasureGeneratorRefreshPositions = new List<Vector2>();
         m_TreasureGeneratorsOnScene = FindObjectsOfType<TreasureGenerator>().ToList();
         m_TreasureGeneratorsOnScene.ForEach(_treasureGenerator =>
         {
             TempLevelData.TreasureGeneratorPositions.Add(new Vector2(_treasureGenerator.transform.position.x, _treasureGenerator.transform.position.y));
             TempLevelData.TreasureGeneratorRefreshRates.Add(_treasureGenerator.GenerateRefreshRate);
             TempLevelData.TreasureGeneratorDelays.Add(_treasureGenerator.GenerateDelay);
-            TempLevelData.TreasureGeneratorRefreshPositions.Add(new Vector2(_treasureGenerator.RefreshPosition.position.x, _treasureGenerator.RefreshPosition.position.y));
         }
         );
     }

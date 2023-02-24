@@ -58,9 +58,13 @@ public class LevelManager : CustomBehaviour
                 (GameManager.Instance.Entities.GetActiveParent(ActiveParents.TreasureGenerator))
             ).GetGameObject().GetComponent<TreasureGenerator>();
 
+            GameManager.Instance.Entities.ManageTreasureGeneratorList(
+                (m_TempTreasureGenerator),
+                (ListOperation.Adding)
+            );
+
             m_TempTreasureGenerator.GenerateRefreshRate = m_LevelData.TreasureGeneratorRefreshRates[_treasureCount];
             m_TempTreasureGenerator.GenerateDelay = m_LevelData.TreasureGeneratorDelays[_treasureCount];
-            m_TempTreasureGenerator.RefreshPosition.position = m_LevelData.TreasureGeneratorRefreshPositions[_treasureCount];
         }
     }
 
@@ -96,18 +100,18 @@ public class LevelManager : CustomBehaviour
         }
     }
 
-    List<Vector2> m_TempSameYPositions = new List<Vector2>();
-    List<Vector2> m_TempSameXPositions = new List<Vector2>();
     private void SpawnGrounds()
     {
         for (int _groundCount = m_LevelData.GroundPositions.Count - 1; _groundCount >= 0; _groundCount--)
         {
-
-            GameManager.Instance.ObjectPool.SpawnFromPool(
-                (PooledObjectTags.GROUND),
-                (m_LevelData.GroundPositions[_groundCount]),
-                (Quaternion.identity),
-                (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+            GameManager.Instance.Entities.ManageGroundList((
+                GameManager.Instance.ObjectPool.SpawnFromPool(
+                    (PooledObjectTags.GROUND),
+                    (m_LevelData.GroundPositions[_groundCount]),
+                    (Quaternion.identity),
+                    (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Ground))
+                ).GetGameObject().gameObject),
+                (ListOperation.Adding)
             );
 
             List<Vector2> m_TempSameYPositions = new List<Vector2>();

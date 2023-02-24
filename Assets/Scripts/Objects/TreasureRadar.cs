@@ -6,8 +6,9 @@ public class TreasureRadar : CustomBehaviour
 {
     public RadarType TreasureRadarType;
 
+    public bool CanHunt;
+
     public override void Initialize()
     {
     }
-    
 }
