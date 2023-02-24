@@ -64,7 +64,6 @@ public class LevelManager : CustomBehaviour
             );
 
             m_TempTreasureGenerator.GenerateRefreshRate = m_LevelData.TreasureGeneratorRefreshRates[_treasureCount];
-            m_TempTreasureGenerator.GenerateDelay = m_LevelData.TreasureGeneratorDelays[_treasureCount];
         }
     }
 

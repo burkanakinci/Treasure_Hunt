@@ -79,12 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930708f93e53c1e4983d624d3f5edee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RadarParents: {fileID: 649655669531409668}
   m_TreasureRadars:
   - {fileID: 3724390891246743479}
   - {fileID: 1789732002368286677}
   - {fileID: 6741121862120534852}
   GenerateRefreshRate: 0
-  GenerateDelay: 0
 --- !u!1001 &1266562381688750239
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -45,5 +45,6 @@ public class BaseMiner : CustomBehaviour
     protected virtual void TreasureHunt()
     {
         m_MinerCollectedTreasure++;
+        m_TempTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasureGenerator();
     }
 }

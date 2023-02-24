@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Entities : CustomBehaviour
 {
@@ -18,9 +19,6 @@ public class Entities : CustomBehaviour
     [SerializeField] private StoneValue[] m_StoneValues;
     private List<GameObject> m_GroundOnScene;
     private List<TreasureGenerator> m_TreasureGeneratorOnScene;
-    #endregion
-
-    #region ExternalAccess
     #endregion
 
     public override void Initialize()
@@ -62,6 +60,27 @@ public class Entities : CustomBehaviour
     }
     #endregion
 
+    private GameObject m_TempSpawnTreasureGround;
+    private Vector2 m_TempSpawnTreasurePosition, m_NearestTreasurePosition;
+    private float m_TempSpawnedMinDistance;
+    public Vector2 SpawnNewTreasureGenerator()
+    {
+        m_TempSpawnTreasureGround = m_GroundOnScene[Random.Range(0, m_GroundOnScene.Count - 1)];
+        m_TempSpawnTreasurePosition = m_TempSpawnTreasureGround.transform.position + new Vector3((Random.Range(-10.0f, 10.0f)), (Random.Range(-20.0f, 20.0f)), 0.0f);
+
+        m_NearestTreasurePosition = m_TreasureGeneratorOnScene.OrderBy((_treasure) => Vector2.Distance(_treasure.transform.position, m_TempSpawnTreasurePosition)).ToList()[0].transform.position;
+        m_TempSpawnedMinDistance = Vector2.Distance(m_NearestTreasurePosition, m_TempSpawnTreasurePosition);
+
+        if (m_TempSpawnedMinDistance >= 2.0f)
+        {
+
+            return SpawnNewTreasureGenerator();
+        }
+        else
+        {
+            return m_TempSpawnTreasurePosition;
+        }
+    }
 
     public Transform GetActiveParent(ActiveParents _activeParent)
     {
