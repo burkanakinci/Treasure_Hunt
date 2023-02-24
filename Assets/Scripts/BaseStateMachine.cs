@@ -25,7 +25,7 @@ public class BaseStateMachine
             m_CurrentState.PhysicalUpdate();
         }
     }
-    protected void ChangeState(int _state, bool _changeForce = false)
+    public void ChangeState(int _state, bool _changeForce = false)
     {
         if (m_States[_state] != m_CurrentState || _changeForce)
         {
@@ -39,7 +39,7 @@ public class BaseStateMachine
         }
     }
 
-    protected bool EqualCurrentState(int _state)
+    public bool EqualCurrentState(int _state)
     {
         return (m_CurrentState == m_States[_state]);
     }

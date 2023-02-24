@@ -6,6 +6,7 @@ public class BaseMiner : CustomBehaviour
 {
     [SerializeField] protected MinerData m_MinerData;
     #region Fields
+    [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
     protected int m_MinerCollectedTreasure;
     protected TreasureRadar m_TempTriggedTreasureRadar;
@@ -20,6 +21,11 @@ public class BaseMiner : CustomBehaviour
         }
         m_MinerAnimator.SetFloat("Horizontal", _horizontalValue);
         m_MinerAnimator.SetFloat("Vertical", _verticalValue);
+    }
+
+    public void SetMinerVelocity(Vector2 _targetVelocity)
+    {
+        m_PlayerMinerRB.velocity = _targetVelocity * m_MinerData.MinerDefaultSpeed;
     }
 
     public void SetMinerAnimatorSpeedValue(float _speed)

@@ -43,6 +43,7 @@ public class LevelManager : CustomBehaviour
         SpawnTrees();
         SpawnStones();
         SpawnGrounds();
+        SpawnOpponent();
     }
     #region SpawnSceneObject
 

@@ -60,13 +60,17 @@ public class Entities : CustomBehaviour
     }
     #endregion
 
-    private GameObject m_TempSpawnTreasureGround;
+    public Vector2 GetRandomPointOnGrounds()
+    {
+        return ((new Vector3((Random.Range(-10.0f, 10.0f)), (Random.Range(-20.0f, 20.0f)), 0.0f)) +
+            m_GroundOnScene[Random.Range(0, m_GroundOnScene.Count - 1)].transform.position);
+    }
+
     private Vector2 m_TempSpawnTreasurePosition, m_NearestTreasurePosition;
     private float m_TempSpawnedMinDistance;
     public Vector2 SpawnNewTreasureGenerator()
     {
-        m_TempSpawnTreasureGround = m_GroundOnScene[Random.Range(0, m_GroundOnScene.Count - 1)];
-        m_TempSpawnTreasurePosition = m_TempSpawnTreasureGround.transform.position + new Vector3((Random.Range(-10.0f, 10.0f)), (Random.Range(-20.0f, 20.0f)), 0.0f);
+        m_TempSpawnTreasurePosition = GetRandomPointOnGrounds();
 
         m_NearestTreasurePosition = m_TreasureGeneratorOnScene.OrderBy((_treasure) => Vector2.Distance(_treasure.transform.position, m_TempSpawnTreasurePosition)).ToList()[0].transform.position;
         m_TempSpawnedMinDistance = Vector2.Distance(m_NearestTreasurePosition, m_TempSpawnTreasurePosition);

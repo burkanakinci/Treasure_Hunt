@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMiner : BaseMiner
 {
     private PlayerMinerStateMachine m_PlayerMinerStateMachine;
-    [SerializeField] private Rigidbody2D m_PlayerMinerRB;
     [SerializeField] private Radar m_PlayerMinerRadar;
     public override void Initialize()
     {
@@ -29,11 +28,6 @@ public class PlayerMiner : BaseMiner
         SetMinerAnimatorSpeedValue(_speed);
         SetMinerVelocity(new Vector2(_horizontalValue, _verticalValue));
         SetMinerAnimatorValues(_horizontalValue, _verticalValue);
-    }
-
-    private void SetMinerVelocity(Vector2 _targetVelocity)
-    {
-        m_PlayerMinerRB.velocity = _targetVelocity * m_MinerData.MinerDefaultSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -72,9 +66,11 @@ public class PlayerMiner : BaseMiner
     private void OnResetToMainMenu()
     {
         m_MinerCollectedTreasure = 0;
+        m_PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
     }
     private void OnCountdownFinished()
     {
+        m_PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState);
     }
     private void OnLevelCompleted()
     {

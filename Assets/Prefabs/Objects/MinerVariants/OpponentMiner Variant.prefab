@@ -53,10 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457116274704624231, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
       propertyPath: m_Name
-      value: OpponentMiner
+      value: OpponentMiner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383880129034148984, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+--- !u!50 &1030643903768458375 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7305083849975778808, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 7722910462042814847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7887292724391711512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 457116274704624231, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
@@ -75,7 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
+  m_PlayerMinerRB: {fileID: 1030643903768458375}
   m_MinerAnimator: {fileID: 7887292724735077174}
+  OpponentCurrentDifficulty: 0
 --- !u!95 &7887292724735077174 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 457116272902984265, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}

@@ -6,12 +6,12 @@ using System;
 public class PlayerManager : CustomBehaviour
 {
     #region Fields
-    public Player Player;
+    [SerializeField]private  Player m_Player;
     #endregion
     public override void Initialize()
     {
 
-        Player.Initialize();
+        m_Player.Initialize();
 
     }
     public void UpdateLevelData(int _levelNumber)
