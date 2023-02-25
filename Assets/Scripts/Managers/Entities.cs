@@ -34,7 +34,10 @@ public class Entities : CustomBehaviour
     {
         if (_operation == ListOperation.Adding)
         {
-            m_TreasureGeneratorOnScene.Add(_treasureGenerator);
+            if (!m_TreasureGeneratorOnScene.Contains(_treasureGenerator))
+            {
+                m_TreasureGeneratorOnScene.Add(_treasureGenerator);
+            }
         }
         else if (_operation == ListOperation.Subtraction)
         {
@@ -48,7 +51,10 @@ public class Entities : CustomBehaviour
     {
         if (_operation == ListOperation.Adding)
         {
-            m_GroundOnScene.Add(_ground);
+            if (!m_GroundOnScene.Contains(_ground))
+            {
+                m_GroundOnScene.Add(_ground);
+            }
         }
         else if (_operation == ListOperation.Subtraction)
         {
@@ -59,6 +65,11 @@ public class Entities : CustomBehaviour
         }
     }
     #endregion
+
+    public TreasureGenerator GetNearestGenerator(Vector2 _point)
+    {
+        return m_TreasureGeneratorOnScene.OrderBy((_treasure) => Vector2.Distance(_treasure.transform.position, _point)).ToList()[0];
+    }
 
     public Vector2 GetRandomPointOnGrounds()
     {
@@ -72,12 +83,11 @@ public class Entities : CustomBehaviour
     {
         m_TempSpawnTreasurePosition = GetRandomPointOnGrounds();
 
-        m_NearestTreasurePosition = m_TreasureGeneratorOnScene.OrderBy((_treasure) => Vector2.Distance(_treasure.transform.position, m_TempSpawnTreasurePosition)).ToList()[0].transform.position;
+        m_NearestTreasurePosition = GetNearestGenerator(m_TempSpawnTreasurePosition).transform.position;
         m_TempSpawnedMinDistance = Vector2.Distance(m_NearestTreasurePosition, m_TempSpawnTreasurePosition);
 
-        if (m_TempSpawnedMinDistance >= 2.0f)
+        if (m_TempSpawnedMinDistance <= 25.0f)
         {
-
             return SpawnNewTreasureGenerator();
         }
         else

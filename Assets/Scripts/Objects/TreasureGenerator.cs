@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TreasureGenerator : PooledObject
 {
+    #region Fields
+
     [SerializeField] private Transform m_RadarParents;
     [SerializeField] private TreasureRadar[] m_TreasureRadars;
     public float GenerateRefreshRate;
     private Coroutine m_RefreshTreasureCoroutine;
     private Vector2 m_RefreshPosition;
+    #endregion
+    #region Events
+    public event Action OnResetTreasure;
+    #endregion
     public override void Initialize()
     {
         base.Initialize();
@@ -20,14 +27,18 @@ public class TreasureGenerator : PooledObject
     }
     public override void OnObjectSpawn()
     {
+        OnResetTreasure+=OnResetTreasureGenerator;
+        GameManager.Instance.Entities.ManageTreasureGeneratorList(this, ListOperation.Adding);
         m_RadarParents.gameObject.SetActive(true);
         ResetTreasureAllRadar();
         base.OnObjectSpawn();
     }
     public override void OnObjectDeactive()
     {
+        OnResetTreasure-=OnResetTreasureGenerator;
         KillAlCoroutine();
         GameManager.Instance.Entities.ManageTreasureGeneratorList(this, ListOperation.Subtraction);
+        m_RadarParents.gameObject.SetActive(false);
         base.OnObjectDeactive();
     }
 
@@ -39,8 +50,14 @@ public class TreasureGenerator : PooledObject
         }
     }
 
-    public void ResetTreasureGenerator()
+    public void ResetTreasure()
     {
+        OnResetTreasure?.Invoke();
+    }
+
+    private void OnResetTreasureGenerator()
+    {
+        GameManager.Instance.Entities.ManageTreasureGeneratorList(this, ListOperation.Subtraction);
         m_RadarParents.gameObject.SetActive(false);
         StartRefreshTreasureCoroutine();
     }
@@ -57,10 +74,9 @@ public class TreasureGenerator : PooledObject
     private IEnumerator RefreshTreasureCoroutine()
     {
         yield return new WaitForSeconds(GenerateRefreshRate);
-        Debug.Log(GenerateRefreshRate);
         m_RefreshPosition = GameManager.Instance.Entities.SpawnNewTreasureGenerator();
         this.gameObject.transform.position = m_RefreshPosition;
-        OnObjectSpawn(); 
+        OnObjectSpawn();
     }
 
     private void KillAlCoroutine()

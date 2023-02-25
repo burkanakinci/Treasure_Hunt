@@ -33,6 +33,26 @@ public class BaseMiner : CustomBehaviour
         m_MinerAnimator.SetFloat("Speed", _speed);
     }
 
+    protected void EnteredLevelRadar()
+    {
+        m_TempTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure += OnResetActiveTreasure;
+        if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+        {
+            m_TempTriggedTreasureRadar.CanHunt = false;
+            StartTreasureHuntCoroutine();
+        }
+    }
+
+    protected void ExitLevelRadar()
+    {
+        m_TempTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure -= OnResetActiveTreasure;
+        if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+        {
+            m_TempTriggedTreasureRadar.CanHunt = true;
+            StopCoroutine(m_TreasureHuntCoroutine);
+        }
+    }
+
     protected void StartTreasureHuntCoroutine()
     {
         if (m_TreasureHuntCoroutine != null)
@@ -51,6 +71,10 @@ public class BaseMiner : CustomBehaviour
     protected virtual void TreasureHunt()
     {
         m_MinerCollectedTreasure++;
-        m_TempTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasureGenerator();
+        m_TempTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasure();
+    }
+
+    protected virtual void OnResetActiveTreasure()
+    {
     }
 }

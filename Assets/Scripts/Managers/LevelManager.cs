@@ -59,11 +59,6 @@ public class LevelManager : CustomBehaviour
                 (GameManager.Instance.Entities.GetActiveParent(ActiveParents.TreasureGenerator))
             ).GetGameObject().GetComponent<TreasureGenerator>();
 
-            GameManager.Instance.Entities.ManageTreasureGeneratorList(
-                (m_TempTreasureGenerator),
-                (ListOperation.Adding)
-            );
-
             m_TempTreasureGenerator.GenerateRefreshRate = m_LevelData.TreasureGeneratorRefreshRates[_treasureCount];
         }
     }

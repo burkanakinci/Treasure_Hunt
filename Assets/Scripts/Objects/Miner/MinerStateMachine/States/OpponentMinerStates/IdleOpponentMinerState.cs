@@ -12,13 +12,15 @@ public class IdleOpponentMinerState : IMinerState
 
     public void Enter()
     {
+        m_Miner.SetMinerAnimatorValues(0.0f,0.0f);
+        m_Miner.SetMinerAnimatorSpeedValue(0.0f);
     }
     public void LogicalUpdate()
     {
     }
     public void PhysicalUpdate()
     {
-
+        m_Miner.SetMinerVelocity(Vector2.zero);
     }
     public void Exit()
     {
