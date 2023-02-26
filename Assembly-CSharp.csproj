@@ -93,6 +93,8 @@
      <Compile Include="Assets\Scripts\Objects\TreasureGenerator.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\SearchTreasureOpponentState.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\BoostTrigger.cs" />
+     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjectScripts\CameraData.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
