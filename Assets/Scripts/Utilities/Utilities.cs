@@ -21,21 +21,8 @@ public static class Utilities
         canvas.interactable = false;
     }
 
-    public static Vector3 PointOnPour(ObjectsLayer _rayMaskLayer, Vector3 _toPos, Vector3 _fromPos, float _circleRadius)
+    public static Vector2 RandomPosInsideCircle( float _radius)
     {
-        int m_LayerMask = 1 << ((int)_rayMaskLayer);
-        RaycastHit m_Hit;
-        _toPos.x = _toPos.x + (UnityEngine.Random.insideUnitCircle * _circleRadius).x;
-        _toPos.z = _toPos.z + (UnityEngine.Random.insideUnitCircle * _circleRadius).y;
-        Vector3 m_RayDirection = _toPos - _fromPos;
-
-        if (Physics.Raycast(_fromPos, m_RayDirection, out m_Hit, 2.0f, m_LayerMask))
-        {
-            return m_Hit.point;
-        }
-        else
-        {
-            return _toPos;
-        }
+        return (UnityEngine.Random.insideUnitCircle * _radius);
     }
 }

@@ -71,6 +71,8 @@ public enum OpponentMinerStates
 {
     IdleOpponentMinerState = 0,
     RunOpponentMinerState = 1,
+    SearchTreasureOpponentState=2,
+    
 }
 
 public enum OpponentDifficulty

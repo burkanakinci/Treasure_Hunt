@@ -9,7 +9,7 @@ public class BaseMiner : CustomBehaviour
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
     protected int m_MinerCollectedTreasure;
-    protected TreasureRadar m_TempTriggedTreasureRadar;
+    public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
     #endregion
 
@@ -35,20 +35,20 @@ public class BaseMiner : CustomBehaviour
 
     protected void EnteredLevelRadar()
     {
-        m_TempTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure += OnResetActiveTreasure;
-        if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+        LastTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure += OnResetActiveTreasure;
+        if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
         {
-            m_TempTriggedTreasureRadar.CanHunt = false;
+            LastTriggedTreasureRadar.CanHunt = false;
             StartTreasureHuntCoroutine();
         }
     }
 
     protected void ExitLevelRadar()
     {
-        m_TempTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure -= OnResetActiveTreasure;
-        if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+        LastTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure -= OnResetActiveTreasure;
+        if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
         {
-            m_TempTriggedTreasureRadar.CanHunt = true;
+            LastTriggedTreasureRadar.CanHunt = true;
             StopCoroutine(m_TreasureHuntCoroutine);
         }
     }
@@ -71,7 +71,7 @@ public class BaseMiner : CustomBehaviour
     protected virtual void TreasureHunt()
     {
         m_MinerCollectedTreasure++;
-        m_TempTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasure();
+        LastTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasure();
     }
 
     protected virtual void OnResetActiveTreasure()

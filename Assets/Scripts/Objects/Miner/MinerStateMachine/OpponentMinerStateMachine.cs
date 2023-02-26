@@ -7,5 +7,4 @@ public class OpponentMinerStateMachine : BaseStateMachine
     public OpponentMinerStateMachine(List<IMinerState> _states) : base(_states)
     {
     }
-
 }

@@ -17,7 +17,8 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         List<IMinerState> m_OpponentMinerStates = new List<IMinerState>();
         m_OpponentMinerStates.Add(new IdleOpponentMinerState(this));
-        m_OpponentMinerStates.Add(new RunOpponentMinerState(this,m_RayTransform));
+        m_OpponentMinerStates.Add(new RunOpponentMinerState(this));
+        m_OpponentMinerStates.Add(new SearchTreasureOpponentState(this));
 
         OpponentStateMachine = new OpponentMinerStateMachine(m_OpponentMinerStates);
     }
@@ -40,12 +41,91 @@ public class OpponentMiner : BaseMiner, IPooledObject
         this.transform.SetParent(m_DeactiveParent);
         this.gameObject.SetActive(false);
     }
+    private void Update()
+    {
+        OpponentStateMachine.LogicalUpdate();
+    }
+    private void FixedUpdate()
+    {
+        OpponentStateMachine.PhysicalUpdate();
+    }
+    public void MoveOpponentToTarget(Vector2 _targetPos, ref Vector2 _targetValue)
+    {
+        _targetValue = (_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized;
+
+        SetMinerAnimatorValues(_targetValue.x, _targetValue.y);
+        SetMinerAnimatorSpeedValue(_targetValue.sqrMagnitude);
+    }
+
+    #region CheckForwardArea
+    public void SetRayTransform(Vector2 _targetPos)
+    {
+        m_RayTransform.position = transform.position;
+        m_RayTransform.LookAt(_targetPos);
+    }
+    public bool CheckForward(Vector2 _targetPos)
+    {
+
+        if ((Physics2D.Raycast(
+                 (m_RayTransform.position + m_RayTransform.up * 0.5f),
+                 (_targetPos - new Vector2(transform.position.x, transform.position.y)),
+                 (MinerData.ObstacleRayDistance),
+                 (MinerData.ObstacleLayers))) ||
+            (Physics2D.Raycast(
+                 (m_RayTransform.position - m_RayTransform.up * 0.5f),
+                 (_targetPos - new Vector2(transform.position.x, transform.position.y)),
+                 (MinerData.ObstacleRayDistance),
+                 (MinerData.ObstacleLayers)))
+             )
+        {
+
+#if UNITY_EDITOR
+            DrawForwardRay(Color.white, _targetPos);
+#endif
+            return false;
+        }
+        else
+        {
+#if UNITY_EDITOR
+            DrawForwardRay(Color.black, _targetPos);
+#endif
+            return true;
+        }
+    }
+#if UNITY_EDITOR
+
+    private void DrawForwardRay(Color _drawRayColor, Vector2 _targetPos)
+    {
+        Debug.DrawRay
+        (
+            (m_RayTransform.position + m_RayTransform.up * 0.5f),
+            ((_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized * MinerData.ObstacleRayDistance),
+            (_drawRayColor)
+        );
+        Debug.DrawRay
+        (
+            (m_RayTransform.position - m_RayTransform.up * 0.5f),
+            ((_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized * MinerData.ObstacleRayDistance),
+            (_drawRayColor)
+        );
+    }
+#endif
+
+    public Vector2 TempEnteredRadarPos;
+    #endregion
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            TempEnteredRadarPos=transform.position;
+
+            if (((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel1)) ||
+            ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel2)))
+            {
+                OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentState, true);
+            }
+            else if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
             {
                 OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
                 EnteredLevelRadar();
@@ -56,8 +136,13 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            if ((m_TempTriggedTreasureRadar.CanHunt == true) && (m_TempTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            if (((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel1)) ||
+            ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel2)))
+            {
+                OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentState, true);
+            }
+            if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
             {
                 ExitLevelRadar();
             }
@@ -79,14 +164,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
         return this;
     }
 
-    private void Update()
-    {
-        OpponentStateMachine.LogicalUpdate();
-    }
-    private void FixedUpdate()
-    {
-        OpponentStateMachine.PhysicalUpdate();
-    }
+
 
     #region Events 
     private void OnResetToMainMenu()

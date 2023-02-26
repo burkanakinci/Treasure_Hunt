@@ -34,8 +34,8 @@ public class PlayerMiner : BaseMiner
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            m_PlayerMinerRadar.SetRadar(m_TempTriggedTreasureRadar.TreasureRadarType, TriggerType.Enter);
+            LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            m_PlayerMinerRadar.SetRadar(LastTriggedTreasureRadar.TreasureRadarType, TriggerType.Enter);
 
             EnteredLevelRadar();
 
@@ -45,8 +45,8 @@ public class PlayerMiner : BaseMiner
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
-            m_TempTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            m_PlayerMinerRadar.SetRadar(m_TempTriggedTreasureRadar.TreasureRadarType, TriggerType.Exit);
+            LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
+            m_PlayerMinerRadar.SetRadar(LastTriggedTreasureRadar.TreasureRadarType, TriggerType.Exit);
                 ExitLevelRadar();
         }
     }
