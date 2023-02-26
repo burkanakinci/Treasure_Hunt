@@ -19,6 +19,7 @@ public class Entities : CustomBehaviour
     [SerializeField] private StoneValue[] m_StoneValues;
     private List<GameObject> m_GroundOnScene;
     private List<TreasureGenerator> m_TreasureGeneratorOnScene;
+    [SerializeField] private Vector2[] m_Directions;
     #endregion
 
     public override void Initialize()
@@ -65,6 +66,11 @@ public class Entities : CustomBehaviour
         }
     }
     #endregion
+
+    public Vector2 GetDirection(int _direction)
+    {
+        return m_Directions[_direction];
+    }
 
     public TreasureGenerator GetNearestGenerator(Vector2 _point)
     {

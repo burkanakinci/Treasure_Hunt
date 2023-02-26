@@ -11,7 +11,7 @@ public class BaseStateMachine
         m_States = _states;
     }
 
-    public void LogicalUpdate()
+    public virtual void LogicalUpdate()
     {
         if (m_CurrentState != null)
         {

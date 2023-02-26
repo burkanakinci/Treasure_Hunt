@@ -351,8 +351,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 691282955}
   - {fileID: 228273506}
+  - {fileID: 691282955}
   - {fileID: 1816600235}
   - {fileID: 1055047693}
   - {fileID: 296618317}
@@ -395,7 +395,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 204515511}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255845979
 GameObject:
@@ -687,6 +687,15 @@ MonoBehaviour:
   - StoneSprite: {fileID: 21300000, guid: e435e963ce54c4741b6c840d88ed8526, type: 3}
     StoneColliderOffset: {x: -0.1, y: 0.1}
     StoneColliderSize: {x: 1.2, y: 4.2}
+  m_Directions:
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 1, y: 1}
+  - {x: 1, y: -1}
+  - {x: -1, y: 1}
+  - {x: -1, y: -1}
 --- !u!114 &577122864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +839,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 204515511}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055047692
 GameObject:
@@ -2235,7 +2244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2001968657
 Transform:
   m_ObjectHideFlags: 0

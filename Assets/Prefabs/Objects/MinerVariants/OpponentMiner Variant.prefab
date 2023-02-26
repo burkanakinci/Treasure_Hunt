@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4741954021834428860
 Transform:
   m_ObjectHideFlags: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   m_RayTransform: {fileID: 1639832288431855151}
   OpponentCurrentDifficulty: 0
   TempEnteredRadarPos: {x: 0, y: 0}
+  LastTestedDirection: 0
 --- !u!95 &7887292724735077174 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 457116272902984265, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}

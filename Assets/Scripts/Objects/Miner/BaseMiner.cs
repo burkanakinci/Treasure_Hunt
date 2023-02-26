@@ -9,13 +9,17 @@ public class BaseMiner : CustomBehaviour
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
     protected int m_MinerCollectedTreasure;
-    public TreasureRadar LastTriggedTreasureRadar;
+    [HideInInspector] public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
     #endregion
 
     public override void Initialize()
     {
 
+    }
+    public void SetMinerVelocity(Vector2 _targetVelocity)
+    {
+        m_PlayerMinerRB.velocity = _targetVelocity * MinerData.MinerDefaultSpeed;
     }
 
     public void SetMinerAnimatorValues(float _horizontalValue, float _verticalValue)
@@ -24,18 +28,22 @@ public class BaseMiner : CustomBehaviour
         {
             return;
         }
-        m_MinerAnimator.SetFloat("Horizontal", _horizontalValue);
-        m_MinerAnimator.SetFloat("Vertical", _verticalValue);
-    }
-
-    public void SetMinerVelocity(Vector2 _targetVelocity)
-    {
-        m_PlayerMinerRB.velocity = _targetVelocity * MinerData.MinerDefaultSpeed;
+        SetMinerAnimatorParameter(MinerAnimationParameters.HORIZONTAL, _horizontalValue);
+        SetMinerAnimatorParameter(MinerAnimationParameters.VERTICAL, _verticalValue);
     }
 
     public void SetMinerAnimatorSpeedValue(float _speed)
     {
-        m_MinerAnimator.SetFloat("Speed", _speed);
+        SetMinerAnimatorParameter(MinerAnimationParameters.SPEED, _speed);
+    }
+
+    public void SetMinerAnimatorParameter(string _parameter, float _parameterValue)
+    {
+        m_MinerAnimator.SetFloat(_parameter.ToString(), _parameterValue);
+    }
+    public void SetMinerAnimatorTriggers(string _parameter)
+    {
+        m_MinerAnimator.SetTrigger(_parameter);
     }
 
     protected void EnteredLevelRadar()

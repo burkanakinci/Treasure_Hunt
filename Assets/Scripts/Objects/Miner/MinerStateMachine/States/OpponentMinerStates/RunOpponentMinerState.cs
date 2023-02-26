@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunOpponentMinerState : IMinerState
 {
-    public RunOpponentMinerState(OpponentMiner _miner )
+    public RunOpponentMinerState(OpponentMiner _miner)
     {
         m_Miner = _miner;
     }
@@ -14,19 +14,21 @@ public class RunOpponentMinerState : IMinerState
     public void Enter()
     {
         m_TargetPos = GetTargetPos();
+        m_Miner.LastTestedDirection = -1;
+        m_Miner.CurrentRadarLevel = -1;
     }
     public void LogicalUpdate()
     {
-       m_Miner.SetRayTransform(m_TargetPos);
+        m_Miner.SetRayTransform(m_TargetPos);
         if (!m_Miner.CheckForward(m_TargetPos))
         {
             Enter();
             return;
         }
 
-        m_Miner.MoveOpponentToTarget(m_TargetPos,ref m_TargetValue);
+        m_Miner.SetOpponentAnimatorByTarget(m_TargetPos, ref m_TargetValue);
 
-        if ((Vector2.Distance((new Vector2(m_Miner.transform.position.x, m_Miner.transform.position.y)), m_TargetPos)) <= 1.25f)
+        if ((Vector2.Distance(m_Miner.transform.position, m_TargetPos)) <= 0.5f)
         {
             Enter();
         }
@@ -39,7 +41,7 @@ public class RunOpponentMinerState : IMinerState
     {
 
     }
-    
+
     private TreasureGenerator m_NearestGenerator;
     private Vector3 m_TargetPos;
     private int m_TempPercentValue, m_TempMaxPercentValue;
@@ -60,7 +62,7 @@ public class RunOpponentMinerState : IMinerState
                 m_TempMaxPercentValue = 6;
                 break;
         }
-        if (m_TempPercentValue < m_TempMaxPercentValue)
+        if (m_TempPercentValue <= m_TempMaxPercentValue)
         {
             return ((Random.insideUnitCircle * 6.0f) + new Vector2(m_NearestGenerator.transform.position.x, m_NearestGenerator.transform.position.y));
         }

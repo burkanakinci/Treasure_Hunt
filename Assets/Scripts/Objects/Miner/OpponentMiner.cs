@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpponentMiner : BaseMiner, IPooledObject
 {
     #region Fields
-        [SerializeField] private BoostTrigger m_BoostTrigger;
+    [SerializeField] private BoostTrigger m_BoostTrigger;
     #endregion
     #region PooledFields
     private Transform m_DeactiveParent;
@@ -22,9 +22,12 @@ public class OpponentMiner : BaseMiner, IPooledObject
         m_OpponentMinerStates.Add(new IdleOpponentMinerState(this));
         m_OpponentMinerStates.Add(new RunOpponentMinerState(this));
         m_OpponentMinerStates.Add(new SearchTreasureOpponentState(this));
+        m_OpponentMinerStates.Add(new DigOpponentMinerState(this));
+        m_OpponentMinerStates.Add(new ReturnOpponentMinerState(this));
 
         OpponentStateMachine = new OpponentMinerStateMachine(m_OpponentMinerStates);
     }
+    #region PooledFunctions
     public void SetPooledTag(string _pooledTag)
     {
         m_PooledTag = _pooledTag;
@@ -44,6 +47,12 @@ public class OpponentMiner : BaseMiner, IPooledObject
         this.transform.SetParent(m_DeactiveParent);
         this.gameObject.SetActive(false);
     }
+
+    public CustomBehaviour GetGameObject()
+    {
+        return this;
+    }
+    #endregion
     private void Update()
     {
         OpponentStateMachine.LogicalUpdate();
@@ -52,7 +61,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         OpponentStateMachine.PhysicalUpdate();
     }
-    public void MoveOpponentToTarget(Vector2 _targetPos, ref Vector2 _targetValue)
+    public void SetOpponentAnimatorByTarget(Vector2 _targetPos, ref Vector2 _targetValue)
     {
         _targetValue = (_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized;
 
@@ -113,25 +122,35 @@ public class OpponentMiner : BaseMiner, IPooledObject
         );
     }
 #endif
-
-    public Vector2 TempEnteredRadarPos;
     #endregion
+    public Vector2 LastEnteredRadarPos;
+    public int LastTestedDirection;
+    public int CurrentRadarLevel = -1;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
             LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            TempEnteredRadarPos=transform.position;
 
-            if (((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel1)) ||
+            if ((CurrentRadarLevel == -1) || (CurrentRadarLevel < (int)LastTriggedTreasureRadar.TreasureRadarType))
+            {
+                LastTestedDirection = (-1);
+                CurrentRadarLevel = (int)LastTriggedTreasureRadar.TreasureRadarType;
+            }
+            else
+            {
+                return;
+            }
+            LastEnteredRadarPos = (transform.position) + ((LastTriggedTreasureRadar.transform.position - transform.position).normalized * 1.15f);
+            if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            {
+                OpponentStateMachine.ChangeState((int)OpponentMinerStates.DigOpponentMinerState, true);
+                EnteredLevelRadar();
+            }
+            else if (((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel1)) ||
             ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel2)))
             {
-                OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentState, true);
-            }
-            else if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
-            {
-                OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
-                EnteredLevelRadar();
+                OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentMinerState, true);
             }
         }
     }
@@ -139,15 +158,11 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         if (other.CompareTag(ObjectTags.RADAR))
         {
+
             LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
-            if (((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel1)) ||
-            ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel2)))
+            if ((int)LastTriggedTreasureRadar.TreasureRadarType == CurrentRadarLevel)
             {
-                OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentState, true);
-            }
-            if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
-            {
-                ExitLevelRadar();
+                OpponentStateMachine.ChangeState((int)OpponentMinerStates.ReturnOpponentMinerState, true);
             }
         }
     }
@@ -160,14 +175,8 @@ public class OpponentMiner : BaseMiner, IPooledObject
     protected override void OnResetActiveTreasure()
     {
         base.OnResetActiveTreasure();
-        OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState, true);
+        OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
     }
-    public CustomBehaviour GetGameObject()
-    {
-        return this;
-    }
-
-
 
     #region Events 
     private void OnResetToMainMenu()

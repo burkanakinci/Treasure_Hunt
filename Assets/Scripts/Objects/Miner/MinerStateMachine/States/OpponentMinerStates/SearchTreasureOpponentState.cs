@@ -12,26 +12,24 @@ public class SearchTreasureOpponentState : IMinerState
 
     public void Enter()
     {
+        m_Miner.LastTestedDirection++;
         SetSearchTargetPos();
     }
 
-    private Vector2 m_SearcTargetPos, m_TargetValue;
+    private Vector2 m_SearchTargetPos, m_TargetValue;
     public void LogicalUpdate()
     {
-        m_Miner.SetRayTransform(m_SearcTargetPos);
-        if (!m_Miner.CheckForward(m_SearcTargetPos))
+        m_Miner.SetRayTransform(m_SearchTargetPos);
+        if ((!m_Miner.CheckForward(m_SearchTargetPos)))
         {
-            Enter();
-            return;
+            m_Miner.OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
+        }
+        if (Vector2.Distance(m_Miner.transform.position, m_SearchTargetPos) <= 0.2f)
+        {
+            m_Miner.OpponentStateMachine.ChangeState((int)OpponentMinerStates.ReturnOpponentMinerState);
         }
 
-        m_Miner.MoveOpponentToTarget(m_SearcTargetPos, ref m_TargetValue);
-
-        if ((Vector2.Distance((new Vector2(m_Miner.transform.position.x, m_Miner.transform.position.y)), m_SearcTargetPos)) <= 1.25f)
-        {
-            m_Miner.TempEnteredRadarPos = m_Miner.transform.position;
-            Enter();
-        }
+        m_Miner.SetOpponentAnimatorByTarget(m_SearchTargetPos, ref m_TargetValue);
     }
     public void PhysicalUpdate()
     {
@@ -43,7 +41,14 @@ public class SearchTreasureOpponentState : IMinerState
     }
     public void SetSearchTargetPos()
     {
-        m_SearcTargetPos = m_Miner.TempEnteredRadarPos +
-        (Utilities.RandomPosInsideCircle(1.0f) * ((m_Miner.LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel2) ? (3.0f) : (6.0f)));
+        try
+        {
+
+            m_SearchTargetPos = m_Miner.LastEnteredRadarPos + (GameManager.Instance.Entities.GetDirection(m_Miner.LastTestedDirection) * 15.0f);
+        }
+        catch
+        {
+            m_Miner.OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
+        }
     }
 }

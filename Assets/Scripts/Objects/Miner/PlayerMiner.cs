@@ -13,6 +13,7 @@ public class PlayerMiner : BaseMiner
         List<IMinerState> m_PlayerMinerStates = new List<IMinerState>();
         m_PlayerMinerStates.Add(new IdlePlayerMinerState(this));
         m_PlayerMinerStates.Add(new RunPlayerMinerState(this));
+        m_PlayerMinerStates.Add(new DigPlayerMinerState(this));
 
         PlayerMinerStateMachine = new PlayerMinerStateMachine(m_PlayerMinerStates);
 
@@ -21,6 +22,15 @@ public class PlayerMiner : BaseMiner
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
 
         m_PlayerMinerRadar.Initialize();
+    }
+
+    private void Update()
+    {
+        PlayerMinerStateMachine.LogicalUpdate();
+    }
+    private void FixedUpdate()
+    {
+        PlayerMinerStateMachine.PhysicalUpdate();
     }
 
     public void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)
@@ -36,7 +46,10 @@ public class PlayerMiner : BaseMiner
         {
             LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
             m_PlayerMinerRadar.SetRadar(LastTriggedTreasureRadar.TreasureRadarType, TriggerType.Enter);
-
+            if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
+            {
+                PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.DigPlayerMinerState);
+            }
             EnteredLevelRadar();
 
         }
@@ -47,7 +60,7 @@ public class PlayerMiner : BaseMiner
         {
             LastTriggedTreasureRadar = other.GetComponent<TreasureRadar>();
             m_PlayerMinerRadar.SetRadar(LastTriggedTreasureRadar.TreasureRadarType, TriggerType.Exit);
-                ExitLevelRadar();
+            ExitLevelRadar();
         }
     }
     protected override void TreasureHunt()
@@ -60,6 +73,7 @@ public class PlayerMiner : BaseMiner
     {
         base.OnResetActiveTreasure();
         m_PlayerMinerRadar.SetRadar(RadarType.RadarLevel1, TriggerType.Exit);
+        PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
     }
     #region Events 
     private void OnResetToMainMenu()

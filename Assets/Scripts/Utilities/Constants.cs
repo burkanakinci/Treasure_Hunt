@@ -18,11 +18,19 @@ public class PooledObjectTags
     public const string TREASURE_GENERATOR = "TreasureGenerator";
     public const string UP_LOG = "UpLog";
     public const string SIDE_LOG = "SideLog";
-    public const string OPPONENT= "Opponent";
+    public const string OPPONENT = "Opponent";
 }
 public class UIAnimationStates
 {
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
+}
+public class MinerAnimationParameters
+{
+    public const string HORIZONTAL = "Horizontal";
+    public const string VERTICAL = "Vertical";
+    public const string SPEED = "Speed";
+    public const string DIG_TRIGGER = "DigTrigger";
+    public const string IDLE_TRIGGER = "IdleTrigger";
 }
 
 public enum ObjectsLayer
@@ -50,7 +58,7 @@ public enum UIPanelType
 
 public enum RadarType
 {
-    RadarNull=-1,
+    RadarNull = -1,
     RadarLevel1 = 0,
     RadarLevel2 = 1,
     RadarLevel3 = 2,
@@ -58,7 +66,7 @@ public enum RadarType
 
 public enum CollactableType
 {
-    Boost=0,
+    Boost = 0,
 }
 
 public enum TriggerType
@@ -71,13 +79,15 @@ public enum PlayerMinerStates
 {
     IdlePlayerMinerState = 0,
     RunPlayerMinerState = 1,
+    DigPlayerMinerState = 2,
 }
 public enum OpponentMinerStates
 {
     IdleOpponentMinerState = 0,
     RunOpponentMinerState = 1,
-    SearchTreasureOpponentState=2,
-    
+    SearchTreasureOpponentMinerState = 2,
+    DigOpponentMinerState = 3,
+    ReturnOpponentMinerState=4,
 }
 
 public enum OpponentDifficulty
@@ -108,5 +118,5 @@ public enum ActiveParents
     Stone = 2,
     Ground = 3,
     Log = 4,
-    Opponent=5,
+    Opponent = 5,
 }

@@ -269,7 +269,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -1902,12 +1902,12 @@ TextureImporter:
       holesingle_spritesheet_24: -8354973685569052078
       holesingle_spritesheet_12: -2102190218344520076
       holesingle_spritesheet_58: 3849829914004132012
-      holesingle_spritesheet_9: 2903396918259808071
-      holesingle_spritesheet_10: -3870119299832594420
       holesingle_spritesheet_67: -6494293467480139090
-      holesingle_spritesheet_54: -3137506562759378354
-      holesingle_spritesheet_57: -2506543582346259904
+      holesingle_spritesheet_9: 2903396918259808071
       holesingle_spritesheet_70: -6270928370753968026
+      holesingle_spritesheet_10: -3870119299832594420
+      holesingle_spritesheet_57: -2506543582346259904
+      holesingle_spritesheet_54: -3137506562759378354
       holesingle_spritesheet_34: 8622304983519748334
       holesingle_spritesheet_53: 1896049226329275846
       holesingle_spritesheet_7: 3870870493619175786
