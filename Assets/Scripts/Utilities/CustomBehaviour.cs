@@ -4,8 +4,14 @@ using UnityEngine;
 
 public abstract class CustomBehaviour : MonoBehaviour
 {
-    public virtual void Initialize()
-    {
+    public abstract void Initialize();
+}
 
+public abstract class CustomBehaviour<T> : MonoBehaviour
+{
+    [HideInInspector] public T CachedComponent;
+    public virtual void Initialize(T _cachedComponent)
+    {
+        CachedComponent = _cachedComponent;
     }
 }

@@ -13,6 +13,11 @@ public class BaseMiner : CustomBehaviour
     protected Coroutine m_TreasureHuntCoroutine;
     #endregion
 
+    public override void Initialize()
+    {
+
+    }
+
     public void SetMinerAnimatorValues(float _horizontalValue, float _verticalValue)
     {
         if ((_horizontalValue == 0.0f) && (_verticalValue == 0.0f))
@@ -35,7 +40,7 @@ public class BaseMiner : CustomBehaviour
 
     protected void EnteredLevelRadar()
     {
-        LastTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure += OnResetActiveTreasure;
+        LastTriggedTreasureRadar.CachedComponent.OnResetTreasure += OnResetActiveTreasure;
         if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
         {
             LastTriggedTreasureRadar.CanHunt = false;
@@ -45,7 +50,7 @@ public class BaseMiner : CustomBehaviour
 
     protected void ExitLevelRadar()
     {
-        LastTriggedTreasureRadar.RadarTreasureGenerator.OnResetTreasure -= OnResetActiveTreasure;
+        LastTriggedTreasureRadar.CachedComponent.OnResetTreasure -= OnResetActiveTreasure;
         if ((LastTriggedTreasureRadar.CanHunt == true) && (LastTriggedTreasureRadar.TreasureRadarType == RadarType.RadarLevel3))
         {
             LastTriggedTreasureRadar.CanHunt = true;
@@ -71,7 +76,7 @@ public class BaseMiner : CustomBehaviour
     protected virtual void TreasureHunt()
     {
         m_MinerCollectedTreasure++;
-        LastTriggedTreasureRadar.RadarTreasureGenerator.ResetTreasure();
+        LastTriggedTreasureRadar.CachedComponent.ResetTreasure();
     }
 
     protected virtual void OnResetActiveTreasure()

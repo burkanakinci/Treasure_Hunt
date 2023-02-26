@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class OpponentMiner : BaseMiner, IPooledObject
 {
+    #region Fields
+        [SerializeField] private BoostTrigger m_BoostTrigger;
+    #endregion
     #region PooledFields
     private Transform m_DeactiveParent;
     private string m_PooledTag;

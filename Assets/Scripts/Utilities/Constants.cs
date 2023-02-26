@@ -56,6 +56,11 @@ public enum RadarType
     RadarLevel3 = 2,
 }
 
+public enum CollactableType
+{
+    Boost=0,
+}
+
 public enum TriggerType
 {
     Enter,

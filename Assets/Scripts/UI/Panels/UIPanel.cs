@@ -3,20 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIPanel : CustomBehaviour
+public class UIPanel : CustomBehaviour<UIManager>
 {
     [SerializeField] private CanvasGroup m_CanvasGroup;
     public CanvasGroup CanvasGroup => m_CanvasGroup;
-    private UIManager m_UIManager;
-
-    public virtual void Initialize(UIManager uiManager)
-    {
-        m_UIManager = uiManager;
-    }
 
     public virtual void ShowPanel()
     {
-        m_UIManager.HideAllPanels();
+        CachedComponent.HideAllPanels();
 
         if (!gameObject.activeInHierarchy)
         {
@@ -34,6 +28,6 @@ public class UIPanel : CustomBehaviour
 
     public virtual void SetCurrentPanel()
     {
-        m_UIManager.SetCurrentUIPanel(this);
+        CachedComponent.SetCurrentUIPanel(this);
     }
 }

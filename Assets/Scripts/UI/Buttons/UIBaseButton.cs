@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public abstract class UIBaseButton : CustomBehaviour
+public abstract class UIBaseButton : CustomBehaviour<UIManager>
 {
     public TweenCallback ButtonClickTweenCallBack;
     public string ButtonClickTweenCallBackID;
-    protected UIManager m_UIManager;
     [SerializeField] protected Button m_Button;
-    public virtual void Initialize(UIManager _uiManager)
+    public override void Initialize(UIManager _uiManager)
     {
-        m_UIManager = _uiManager;
+        base.Initialize(_uiManager);
         m_Button.onClick.AddListener(ButtonClick);
         ButtonClickTweenCallBackID = GetInstanceID() + "ButtonClickTweenCallBackID";
     }

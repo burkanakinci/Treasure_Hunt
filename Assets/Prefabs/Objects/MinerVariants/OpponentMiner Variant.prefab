@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6181406655112808181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4741954021834428860}
+  - component: {fileID: 3284221831780939867}
+  - component: {fileID: 8722718356052359708}
+  m_Layer: 6
+  m_Name: BoostFinderTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4741954021834428860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181406655112808181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454621653639805326}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3284221831780939867
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181406655112808181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.85
+--- !u!114 &8722718356052359708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181406655112808181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c12e1bdad2c3534d81d0d0c95693350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CachedComponent: {fileID: 0}
 --- !u!1 &7014139449974621436
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,8 +184,11 @@ MonoBehaviour:
   MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
   m_PlayerMinerRB: {fileID: 1030643903768458375}
   m_MinerAnimator: {fileID: 7887292724735077174}
+  LastTriggedTreasureRadar: {fileID: 0}
+  m_BoostTrigger: {fileID: 8722718356052359708}
   m_RayTransform: {fileID: 1639832288431855151}
   OpponentCurrentDifficulty: 0
+  TempEnteredRadarPos: {x: 0, y: 0}
 --- !u!95 &7887292724735077174 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 457116272902984265, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
