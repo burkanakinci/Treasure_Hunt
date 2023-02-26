@@ -98,6 +98,8 @@
      <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
      <Compile Include="Assets\Scripts\Objects\TreasureGenerator.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\ReturnOpponentMinerState.cs" />
+     <Compile Include="Assets\Scripts\Objects\ParticlePooledObjects.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\Hole.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

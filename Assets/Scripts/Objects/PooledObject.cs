@@ -21,7 +21,6 @@ public class PooledObject : CustomBehaviour, IPooledObject
     public virtual void OnObjectDeactive()
     {
         GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
-        this.transform.SetParent(null);
         GameManager.Instance.ObjectPool.AddObjectPool(m_PooledTag, this);
         this.transform.SetParent(m_DeactiveParent);
         this.gameObject.SetActive(false);

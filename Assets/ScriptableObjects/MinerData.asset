@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MinerData
   m_EditorClassIdentifier: 
   m_MinerDefaultSpeed: 6
-  m_MinerFastSpeed: 6
+  m_MinerFastSpeed: 10
   m_TreasureDuration: 5
   m_ObstacleLayers:
     serializedVersion: 2

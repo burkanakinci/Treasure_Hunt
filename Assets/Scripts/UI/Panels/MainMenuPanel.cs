@@ -33,7 +33,7 @@ public class MainMenuPanel : UIPanel
        DOVirtual.DelayedCall(1.0f, () =>
              {
                  m_CountDownAnimator.enabled = true;
-                 m_CountDownAnimator.Play(UIAnimationStates.COUNTDOWN_ANIMATION, 0, 0.0f);
+                 m_CountDownAnimator.Play(AnimationStates.COUNTDOWN_ANIMATION, 0, 0.0f);
              }).SetId(m_StartGameButton.ButtonClickTweenCallBackID);
    });
     }

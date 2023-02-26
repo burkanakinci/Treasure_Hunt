@@ -13,6 +13,7 @@ public class DigOpponentMinerState : IMinerState
     public void Enter()
     {
         m_Miner.SetMinerAnimatorTriggers(MinerAnimationParameters.DIG_TRIGGER);
+        m_Miner.MinerHole.OpenHole(m_Miner.transform.position);
     }
     public void LogicalUpdate()
     {
@@ -26,5 +27,6 @@ public class DigOpponentMinerState : IMinerState
         m_Miner.SetMinerAnimatorTriggers(MinerAnimationParameters.IDLE_TRIGGER);
         m_Miner.SetMinerAnimatorValues(0.0f, 0.0f);
         m_Miner.SetMinerAnimatorSpeedValue(0.0f);
+        m_Miner.MinerHole.CloseHole();
     }
 }

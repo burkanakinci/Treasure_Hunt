@@ -78,6 +78,7 @@ public class PlayerMiner : BaseMiner
     #region Events 
     private void OnResetToMainMenu()
     {
+        MinerHole.CloseHole();
         m_MinerCollectedTreasure = 0;
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
     }

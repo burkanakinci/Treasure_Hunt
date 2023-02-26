@@ -20,9 +20,10 @@ public class PooledObjectTags
     public const string SIDE_LOG = "SideLog";
     public const string OPPONENT = "Opponent";
 }
-public class UIAnimationStates
+public class AnimationStates
 {
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
+    public const string HOLE="Base Layer.Hole";
 }
 public class MinerAnimationParameters
 {

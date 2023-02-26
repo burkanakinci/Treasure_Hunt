@@ -34,6 +34,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
     public virtual void OnObjectSpawn()
     {
+        MinerHole.CloseHole();
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
         GameManager.Instance.LevelManager.OnCleanSceneObject += OnObjectDeactive;
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
@@ -123,9 +124,9 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
 #endif
     #endregion
-    public Vector2 LastEnteredRadarPos;
-    public int LastTestedDirection;
-    public int CurrentRadarLevel = -1;
+    [HideInInspector] public Vector2 LastEnteredRadarPos;
+    [HideInInspector] public int LastTestedDirection;
+    [HideInInspector] public int CurrentRadarLevel = -1;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(ObjectTags.RADAR))

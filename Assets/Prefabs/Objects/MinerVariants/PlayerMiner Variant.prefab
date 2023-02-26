@@ -77,6 +77,8 @@ MonoBehaviour:
   MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
   m_PlayerMinerRB: {fileID: 7232788139691540253}
   m_MinerAnimator: {fileID: 529412268818555052}
+  LastTriggedTreasureRadar: {fileID: 0}
+  MinerHole: {fileID: 8948079840644035907}
   m_PlayerMinerRadar: {fileID: 736947336951786891}
 --- !u!95 &529412268818555052 stripped
 Animator:
@@ -93,6 +95,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7305083849975778808, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 72296683153076965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8948079840644035907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9019916513429997478, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 72296683153076965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7856a23b81461cf41bbe3eb682e2db6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &72296683571484144
 PrefabInstance:
   m_ObjectHideFlags: 0

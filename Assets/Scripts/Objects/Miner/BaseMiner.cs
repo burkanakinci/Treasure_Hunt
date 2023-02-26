@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BaseMiner : CustomBehaviour
 {
-    public MinerData MinerData;
+
     #region Fields
+    public MinerData MinerData;
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
     protected int m_MinerCollectedTreasure;
     [HideInInspector] public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
+    public Hole MinerHole;
     #endregion
 
     public override void Initialize()
