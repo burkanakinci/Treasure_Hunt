@@ -25,9 +25,6 @@ public class UIAnimationStates
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
 }
 
-public enum PlayerStates
-{
-}
 public enum ObjectsLayer
 {
     Default = 0,

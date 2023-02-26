@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f220e1027d2a8b54186d3edef30e995e, type: 3}
   m_Name: MinerData
   m_EditorClassIdentifier: 
-  m_MinerDefaultSpeed: 4
-  m_MinerFastSpeed: 2
+  m_MinerDefaultSpeed: 6
+  m_MinerFastSpeed: 6
   m_TreasureDuration: 3
+  m_ObstacleLayers:
+    serializedVersion: 2
+    m_Bits: 896
+  m_ObstacleRayDistance: 2.3

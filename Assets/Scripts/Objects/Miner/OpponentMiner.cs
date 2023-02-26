@@ -8,13 +8,16 @@ public class OpponentMiner : BaseMiner, IPooledObject
     private Transform m_DeactiveParent;
     private string m_PooledTag;
     #endregion
+    #region StatesFields
+    [SerializeField] private Transform m_RayTransform;
+    #endregion
     public OpponentDifficulty OpponentCurrentDifficulty;
     public OpponentMinerStateMachine OpponentStateMachine;
     public override void Initialize()
     {
         List<IMinerState> m_OpponentMinerStates = new List<IMinerState>();
         m_OpponentMinerStates.Add(new IdleOpponentMinerState(this));
-        m_OpponentMinerStates.Add(new RunOpponentMinerState(this));
+        m_OpponentMinerStates.Add(new RunOpponentMinerState(this,m_RayTransform));
 
         OpponentStateMachine = new OpponentMinerStateMachine(m_OpponentMinerStates);
     }
@@ -60,7 +63,6 @@ public class OpponentMiner : BaseMiner, IPooledObject
             }
         }
     }
-
     protected override void TreasureHunt()
     {
         base.TreasureHunt();

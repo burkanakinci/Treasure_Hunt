@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457116274704624231, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
       propertyPath: m_Name
-      value: PlayerMiner
+      value: PlayerMiner Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
@@ -74,9 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c402b1c34964a04cb40e7e8e5620c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
-  m_MinerAnimator: {fileID: 529412268818555052}
+  MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
   m_PlayerMinerRB: {fileID: 7232788139691540253}
+  m_MinerAnimator: {fileID: 529412268818555052}
   m_PlayerMinerRadar: {fileID: 736947336951786891}
 --- !u!95 &529412268818555052 stripped
 Animator:

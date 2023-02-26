@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseMiner : CustomBehaviour
 {
-    [SerializeField] protected MinerData m_MinerData;
+    public MinerData MinerData;
     #region Fields
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
@@ -25,7 +25,7 @@ public class BaseMiner : CustomBehaviour
 
     public void SetMinerVelocity(Vector2 _targetVelocity)
     {
-        m_PlayerMinerRB.velocity = _targetVelocity * m_MinerData.MinerDefaultSpeed;
+        m_PlayerMinerRB.velocity = _targetVelocity * MinerData.MinerDefaultSpeed;
     }
 
     public void SetMinerAnimatorSpeedValue(float _speed)
@@ -64,7 +64,7 @@ public class BaseMiner : CustomBehaviour
 
     protected IEnumerator TreasureHuntCoroutine()
     {
-        yield return new WaitForSeconds(m_MinerData.TreasureDuration);
+        yield return new WaitForSeconds(MinerData.TreasureDuration);
         TreasureHunt();
     }
 
