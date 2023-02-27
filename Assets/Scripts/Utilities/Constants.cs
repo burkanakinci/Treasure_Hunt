@@ -8,6 +8,7 @@ public class ObjectTags
     public const string STONE = "Stone";
     public const string TREE = "Tree";
     public const string RADAR = "Radar";
+    public const string BOOST= "Boost";
 }
 
 public class PooledObjectTags
@@ -20,6 +21,8 @@ public class PooledObjectTags
     public const string SIDE_LOG = "SideLog";
     public const string OPPONENT = "Opponent";
     public const string POUCH_ANIMATION= "PouchAnimation";
+    public const string FREEZE_BOOST= "FreezeBoost";
+    public const string SPEED_BOOST= "SpeedBoost";
 }
 public class AnimationStates
 {
@@ -50,6 +53,7 @@ public enum ObjectsLayer
     Tree = 8,
     Log = 9,
     Radar = 10,
+    Boost=11,
 }
 
 public enum ListOperation
@@ -89,6 +93,7 @@ public enum PlayerMinerStates
     IdlePlayerMinerState = 0,
     RunPlayerMinerState = 1,
     DigPlayerMinerState = 2,
+    FreezePlayerMinerState=3,
 }
 public enum OpponentMinerStates
 {
@@ -97,6 +102,7 @@ public enum OpponentMinerStates
     SearchTreasureOpponentMinerState = 2,
     DigOpponentMinerState = 3,
     ReturnOpponentMinerState=4,
+    FreezeOpponentMinerState=5,
 }
 
 public enum OpponentDifficulty

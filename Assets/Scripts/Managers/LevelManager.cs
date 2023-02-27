@@ -44,6 +44,8 @@ public class LevelManager : CustomBehaviour
         SpawnStones();
         SpawnGrounds();
         SpawnOpponent();
+        SpawnFreezeBoost();
+        SpawnSpeedBoost();
     }
     #region SpawnSceneObject
 
@@ -195,6 +197,31 @@ public class LevelManager : CustomBehaviour
             ).GetGameObject().GetComponent<OpponentMiner>();
 
             m_TempSpawnedOpponent.OpponentCurrentDifficulty = m_LevelData.Opponents[_opponentCount];
+        }
+    }
+
+    private void SpawnFreezeBoost()
+    {
+        for (int _freezeBoostCount = m_LevelData.FreezeBoostCount - 1; _freezeBoostCount >= 0; _freezeBoostCount--)
+        {
+            GameManager.Instance.ObjectPool.SpawnFromPool(
+                (PooledObjectTags.FREEZE_BOOST),
+                (GameManager.Instance.Entities.GetRandomPointOnGrounds()),
+                (Quaternion.identity),
+                (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Other))
+            );
+        }
+    }
+    private void SpawnSpeedBoost()
+    {
+        for (int _speedBoostCount = m_LevelData.SpeedBoostCount - 1; _speedBoostCount >= 0; _speedBoostCount--)
+        {
+            GameManager.Instance.ObjectPool.SpawnFromPool(
+                (PooledObjectTags.SPEED_BOOST),
+                (GameManager.Instance.Entities.GetRandomPointOnGrounds()),
+                (Quaternion.identity),
+                (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Other))
+            );
         }
     }
 

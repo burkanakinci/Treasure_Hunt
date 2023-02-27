@@ -1423,6 +1423,14 @@ MonoBehaviour:
     PooledPrefab: {fileID: 6548887735284959336, guid: c188a57e3b6bf9b478faa287b91e66d9, type: 3}
     SpawnedSize: 10
     PrefabParent: {fileID: 1306616732}
+  - PrefabTag: FreezeBoost
+    PooledPrefab: {fileID: 1960287565456682317, guid: 9f04222e328d20c428b1113c4835b20c, type: 3}
+    SpawnedSize: 10
+    PrefabParent: {fileID: 1306616732}
+  - PrefabTag: SpeedBoost
+    PooledPrefab: {fileID: 7076887548930988492, guid: 41a675d6a918bce4d824e2b3443e6165, type: 3}
+    SpawnedSize: 10
+    PrefabParent: {fileID: 1306616732}
 --- !u!1 &1457754968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,7 +2321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2001968657
 Transform:
   m_ObjectHideFlags: 0

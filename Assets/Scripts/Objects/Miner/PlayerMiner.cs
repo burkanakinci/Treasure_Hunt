@@ -14,9 +14,12 @@ public class PlayerMiner : BaseMiner
         m_PlayerMinerStates.Add(new IdlePlayerMinerState(this));
         m_PlayerMinerStates.Add(new RunPlayerMinerState(this));
         m_PlayerMinerStates.Add(new DigPlayerMinerState(this));
+        m_PlayerMinerStates.Add(new FreezePlayerMinerState(this));
 
         PlayerMinerStateMachine = new PlayerMinerStateMachine(m_PlayerMinerStates);
 
+        GameManager.Instance.Entities.OnFreezeAllMiner += FreezeMiner;
+        GameManager.Instance.OnResetToMainMenu += OnResetToMainMenu;
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
         GameManager.Instance.OnLevelCompleted += OnLevelCompleted;
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
@@ -26,6 +29,7 @@ public class PlayerMiner : BaseMiner
 
     private void Update()
     {
+
         PlayerMinerStateMachine.LogicalUpdate();
     }
     private void FixedUpdate()
@@ -53,6 +57,10 @@ public class PlayerMiner : BaseMiner
             EnteredLevelRadar();
 
         }
+        if (other.CompareTag(ObjectTags.BOOST))
+        {
+            other.GetComponent<IBoost>().AffectBoost(this);
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -79,6 +87,17 @@ public class PlayerMiner : BaseMiner
     {
         return m_MinerAnimations[(int)_minerAnimation];
     }
+
+    protected override void FreezeMiner()
+    {
+        base.FreezeMiner();
+        PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.FreezePlayerMinerState, true);
+    }
+    public override void DissolveMiner()
+    {
+        PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
+        base.DissolveMiner();
+    }
     #region Events 
     private void OnResetToMainMenu()
     {
@@ -86,6 +105,7 @@ public class PlayerMiner : BaseMiner
         {
             m_MinerAnimations[_animationCount].CloseHole();
         }
+        m_CurrentSpeed = MinerData.MinerDefaultSpeed;
         m_MinerCollectedTreasure = 0;
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
     }
@@ -95,9 +115,11 @@ public class PlayerMiner : BaseMiner
     }
     private void OnLevelCompleted()
     {
+        KillAllCoroutine();
     }
     private void OnLevelFailed()
     {
+        KillAllCoroutine();
     }
     private void OnDestroy()
     {

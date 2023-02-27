@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 using System.Linq;
 
 public class Entities : CustomBehaviour
@@ -20,6 +21,10 @@ public class Entities : CustomBehaviour
     private List<GameObject> m_GroundOnScene;
     private List<TreasureGenerator> m_TreasureGeneratorOnScene;
     [SerializeField] private Vector2[] m_Directions;
+    #endregion
+
+    #region Events 
+    public event Action OnFreezeAllMiner;
     #endregion
 
     public override void Initialize()
@@ -79,8 +84,8 @@ public class Entities : CustomBehaviour
 
     public Vector2 GetRandomPointOnGrounds()
     {
-        return ((new Vector3((Random.Range(-10.0f, 10.0f)), (Random.Range(-20.0f, 20.0f)), 0.0f)) +
-            m_GroundOnScene[Random.Range(0, m_GroundOnScene.Count - 1)].transform.position);
+        return ((new Vector3((UnityEngine.Random.Range(-10.0f, 10.0f)), (UnityEngine.Random.Range(-20.0f, 20.0f)), 0.0f)) +
+            m_GroundOnScene[UnityEngine.Random.Range(0, m_GroundOnScene.Count - 1)].transform.position);
     }
 
     private Vector2 m_TempSpawnTreasurePosition, m_NearestTreasurePosition;
@@ -117,6 +122,10 @@ public class Entities : CustomBehaviour
     }
 
     #region Events 
+    public void FreezeAllMiner()
+    {
+        OnFreezeAllMiner?.Invoke();     
+    }
     private void OnResetToMainMenu()
     {
         m_GroundOnScene.Clear();

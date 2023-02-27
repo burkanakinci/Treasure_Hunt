@@ -26,6 +26,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
         m_OpponentMinerStates.Add(new SearchTreasureOpponentState(this));
         m_OpponentMinerStates.Add(new DigOpponentMinerState(this));
         m_OpponentMinerStates.Add(new ReturnOpponentMinerState(this));
+        m_OpponentMinerStates.Add(new FreezeOpponentMinerState(this));
 
         OpponentStateMachine = new OpponentMinerStateMachine(m_OpponentMinerStates);
     }
@@ -40,16 +41,23 @@ public class OpponentMiner : BaseMiner, IPooledObject
         {
             m_MinerAnimations[_animationCount].CloseHole();
         }
+        m_CurrentSpeed = MinerData.MinerDefaultSpeed;
+
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
+
+        GameManager.Instance.Entities.OnFreezeAllMiner += FreezeMiner;
         GameManager.Instance.LevelManager.OnCleanSceneObject += OnObjectDeactive;
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
     }
     public virtual void OnObjectDeactive()
     {
+        GameManager.Instance.Entities.OnFreezeAllMiner -= FreezeMiner;
+
         GameManager.Instance.OnCountdownFinished -= OnCountdownFinished;
         GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
-        this.transform.SetParent(null);
+
         GameManager.Instance.ObjectPool.AddObjectPool(m_PooledTag, this);
+
         this.transform.SetParent(m_DeactiveParent);
         this.gameObject.SetActive(false);
     }
@@ -159,6 +167,10 @@ public class OpponentMiner : BaseMiner, IPooledObject
                 OpponentStateMachine.ChangeState((int)OpponentMinerStates.SearchTreasureOpponentMinerState, true);
             }
         }
+        if (other.CompareTag(ObjectTags.BOOST))
+        {
+            other.GetComponent<IBoost>().AffectBoost(this);
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -187,6 +199,18 @@ public class OpponentMiner : BaseMiner, IPooledObject
     public BaseMinerAnimation GetMinerAnimation(MinerAnimations _minerAnimation)
     {
         return m_MinerAnimations[(int)_minerAnimation];
+    }
+
+    protected override void FreezeMiner()
+    {
+        base.FreezeMiner();
+        OpponentStateMachine.ChangeState((int)OpponentMinerStates.FreezeOpponentMinerState, true);
+    }
+
+    public override void DissolveMiner()
+    {
+        OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState, true);
+        base.DissolveMiner();
     }
     #region Events 
     private void OnResetToMainMenu()

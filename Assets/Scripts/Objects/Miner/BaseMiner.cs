@@ -6,6 +6,7 @@ public class BaseMiner : CustomBehaviour
 {
 
     #region Fields
+    protected float m_CurrentSpeed;
     public MinerData MinerData;
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
@@ -23,7 +24,7 @@ public class BaseMiner : CustomBehaviour
     }
     public void SetMinerVelocity(Vector2 _targetVelocity)
     {
-        m_PlayerMinerRB.velocity = _targetVelocity * MinerData.MinerDefaultSpeed;
+        m_PlayerMinerRB.velocity = _targetVelocity * m_CurrentSpeed;
     }
 
     public void SetMinerAnimatorValues(float _horizontalValue, float _verticalValue)
@@ -91,7 +92,76 @@ public class BaseMiner : CustomBehaviour
         LastTriggedTreasureRadar.CachedComponent.ResetTreasure();
     }
 
+    private Coroutine m_SpeedDefaultCoroutine;
+    public void SpeedUpMiner()
+    {
+        m_CurrentSpeed = MinerData.MinerFastSpeed;
+        StartSpeedDefaultCoroutine();
+    }
+    private void StartSpeedDefaultCoroutine()
+    {
+        if (m_SpeedDefaultCoroutine != null)
+        {
+            StopCoroutine(m_SpeedDefaultCoroutine);
+        }
+        m_SpeedDefaultCoroutine = StartCoroutine(SpeedDefaultCoroutine());
+    }
+
+    private IEnumerator SpeedDefaultCoroutine()
+    {
+        yield return new WaitForSeconds(MinerData.SpeedUpDuration);
+        m_CurrentSpeed = MinerData.MinerDefaultSpeed;
+    }
+
     protected virtual void OnResetActiveTreasure()
     {
+    }
+
+    protected virtual void KillAllCoroutine()
+    {
+        if (m_SpeedDefaultCoroutine != null)
+        {
+            StopCoroutine(m_SpeedDefaultCoroutine);
+        }
+        if (m_TreasureHuntCoroutine != null)
+        {
+            StopCoroutine(m_TreasureHuntCoroutine);
+        }
+    }
+
+    protected virtual void FreezeMiner()
+    {
+        m_MinerAnimator.enabled = false;
+        KillAllCoroutine();
+    }
+
+    public virtual void FreezeOtherMiners()
+    {
+        GameManager.Instance.Entities.OnFreezeAllMiner -= FreezeMiner;
+        GameManager.Instance.Entities.FreezeAllMiner();
+
+        StartAddedFreezeCoroutine();
+    }
+
+    private Coroutine m_AddedFreezeCoroutine;
+    private void StartAddedFreezeCoroutine()
+    {
+        if (m_AddedFreezeCoroutine != null)
+        {
+            StopCoroutine(m_AddedFreezeCoroutine);
+        }
+
+        m_AddedFreezeCoroutine = StartCoroutine(AddedFreezeCoroutine());
+    }
+
+    private IEnumerator AddedFreezeCoroutine()
+    {
+        yield return new WaitForSeconds(MinerData.FreezeDuration - 0.1f);
+        GameManager.Instance.Entities.OnFreezeAllMiner += FreezeMiner;
+    }
+
+    public virtual void DissolveMiner()
+    {
+        m_MinerAnimator.enabled = false;
     }
 }

@@ -101,6 +101,12 @@
      <Compile Include="Assets\Scripts\Objects\ParticlePooledObjects.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\BaseMinerAnimation.cs" />
      <Compile Include="Assets\Scripts\Objects\AnimationPooledObject.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IBoost.cs" />
+     <Compile Include="Assets\Scripts\Objects\Collactables\SpeedBoost.cs" />
+     <Compile Include="Assets\Scripts\Objects\Collactables\FreezeBoost.cs" />
+     <Compile Include="Assets\Scripts\GUITest.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\FreezePlayerMinerState.cs" />
+     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\FreezeOpponentMinerState.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
