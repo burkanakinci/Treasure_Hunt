@@ -19,11 +19,13 @@ public class PooledObjectTags
     public const string UP_LOG = "UpLog";
     public const string SIDE_LOG = "SideLog";
     public const string OPPONENT = "Opponent";
+    public const string POUCH_ANIMATION= "PouchAnimation";
 }
 public class AnimationStates
 {
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
     public const string HOLE="Base Layer.Hole";
+    public const string POUCH="Base Layer.Pouch";
 }
 public class MinerAnimationParameters
 {
@@ -32,6 +34,12 @@ public class MinerAnimationParameters
     public const string SPEED = "Speed";
     public const string DIG_TRIGGER = "DigTrigger";
     public const string IDLE_TRIGGER = "IdleTrigger";
+}
+
+public enum MinerAnimations
+{
+    Hole=0,
+    Pouch=1,
 }
 
 public enum ObjectsLayer
@@ -120,4 +128,5 @@ public enum ActiveParents
     Ground = 3,
     Log = 4,
     Opponent = 5,
+    Other=6,
 }

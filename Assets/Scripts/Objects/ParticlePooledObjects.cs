@@ -5,9 +5,12 @@ using UnityEngine;
 public class ParticlePooledObjects : PooledObject
 {
     [SerializeField] private ParticleSystem m_PlayedParticle;
-
-
     private Coroutine m_StartParticleIsAliveCoroutine;
+    public override void OnObjectSpawn()
+    {
+        base.OnObjectSpawn();
+        StartParticleIsAliveCoroutine();
+    }
     private void StartParticleIsAliveCoroutine()
     {
         if (m_StartParticleIsAliveCoroutine != null)

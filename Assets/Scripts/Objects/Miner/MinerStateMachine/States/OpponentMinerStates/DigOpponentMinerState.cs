@@ -13,7 +13,7 @@ public class DigOpponentMinerState : IMinerState
     public void Enter()
     {
         m_Miner.SetMinerAnimatorTriggers(MinerAnimationParameters.DIG_TRIGGER);
-        m_Miner.MinerHole.OpenHole(m_Miner.transform.position);
+        m_Miner.GetMinerAnimation(MinerAnimations.Hole).OpenHole(m_Miner.transform.position);
     }
     public void LogicalUpdate()
     {
@@ -24,9 +24,15 @@ public class DigOpponentMinerState : IMinerState
     }
     public void Exit()
     {
+        GameManager.Instance.ObjectPool.SpawnFromPool(
+            (PooledObjectTags.POUCH_ANIMATION),
+            (m_Miner.transform.position),
+            (Quaternion.identity),
+            (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Other))
+        );
+        m_Miner.GetMinerAnimation(MinerAnimations.Hole).CloseHole();
         m_Miner.SetMinerAnimatorTriggers(MinerAnimationParameters.IDLE_TRIGGER);
         m_Miner.SetMinerAnimatorValues(0.0f, 0.0f);
         m_Miner.SetMinerAnimatorSpeedValue(0.0f);
-        m_Miner.MinerHole.CloseHole();
     }
 }

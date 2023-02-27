@@ -18,6 +18,8 @@ public class OpponentMiner : BaseMiner, IPooledObject
     public OpponentMinerStateMachine OpponentStateMachine;
     public override void Initialize()
     {
+        base.Initialize();
+
         List<IMinerState> m_OpponentMinerStates = new List<IMinerState>();
         m_OpponentMinerStates.Add(new IdleOpponentMinerState(this));
         m_OpponentMinerStates.Add(new RunOpponentMinerState(this));
@@ -34,7 +36,10 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
     public virtual void OnObjectSpawn()
     {
-        MinerHole.CloseHole();
+        for (int _animationCount = m_MinerAnimations.Length - 1; _animationCount >= 0; _animationCount--)
+        {
+            m_MinerAnimations[_animationCount].CloseHole();
+        }
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
         GameManager.Instance.LevelManager.OnCleanSceneObject += OnObjectDeactive;
         GameManager.Instance.OnCountdownFinished += OnCountdownFinished;
@@ -179,6 +184,10 @@ public class OpponentMiner : BaseMiner, IPooledObject
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
     }
 
+    public BaseMinerAnimation GetMinerAnimation(MinerAnimations _minerAnimation)
+    {
+        return m_MinerAnimations[(int)_minerAnimation];
+    }
     #region Events 
     private void OnResetToMainMenu()
     {

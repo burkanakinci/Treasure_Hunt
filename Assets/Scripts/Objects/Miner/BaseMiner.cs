@@ -12,11 +12,13 @@ public class BaseMiner : CustomBehaviour
     protected int m_MinerCollectedTreasure;
     [HideInInspector] public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
-    public Hole MinerHole;
+    [SerializeField] protected BaseMinerAnimation[] m_MinerAnimations;
     #endregion
 
     public override void Initialize()
     {
+
+        m_MinerAnimations[0].Initialize(AnimationStates.HOLE);
 
     }
     public void SetMinerVelocity(Vector2 _targetVelocity)

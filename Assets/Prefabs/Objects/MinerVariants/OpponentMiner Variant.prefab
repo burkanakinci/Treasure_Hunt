@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpponentMiner Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 937607712200598175, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6210170044667769858, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -168,15 +172,15 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7305083849975778808, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 7722910462042814847}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1585377442054897369 stripped
+--- !u!114 &6381890501062927064 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9019916513429997478, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3727940064986930087, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 7722910462042814847}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7856a23b81461cf41bbe3eb682e2db6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ee3e0ae7ad45e143b248eb14fcd4684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7887292724391711512 stripped
@@ -200,7 +204,8 @@ MonoBehaviour:
   m_PlayerMinerRB: {fileID: 1030643903768458375}
   m_MinerAnimator: {fileID: 7887292724735077174}
   LastTriggedTreasureRadar: {fileID: 0}
-  MinerHole: {fileID: 1585377442054897369}
+  m_MinerAnimations:
+  - {fileID: 6381890501062927064}
   m_BoostTrigger: {fileID: 8722718356052359708}
   m_RayTransform: {fileID: 1639832288431855151}
   OpponentCurrentDifficulty: 0

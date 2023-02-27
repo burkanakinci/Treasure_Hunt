@@ -75,10 +75,17 @@ public class PlayerMiner : BaseMiner
         m_PlayerMinerRadar.SetRadar(RadarType.RadarLevel1, TriggerType.Exit);
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
     }
+    public BaseMinerAnimation GetMinerAnimation(MinerAnimations _minerAnimation)
+    {
+        return m_MinerAnimations[(int)_minerAnimation];
+    }
     #region Events 
     private void OnResetToMainMenu()
     {
-        MinerHole.CloseHole();
+        for (int _animationCount = m_MinerAnimations.Length - 1; _animationCount >= 0; _animationCount--)
+        {
+            m_MinerAnimations[_animationCount].CloseHole();
+        }
         m_MinerCollectedTreasure = 0;
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
     }
