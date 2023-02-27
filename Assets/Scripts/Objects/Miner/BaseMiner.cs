@@ -6,11 +6,12 @@ public class BaseMiner : CustomBehaviour
 {
 
     #region Fields
+    [HideInInspector] public string MinerName;
     protected float m_CurrentSpeed;
     public MinerData MinerData;
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
-    protected int m_MinerCollectedTreasure;
+    public int MinerCollectedTreasure;
     [HideInInspector] public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
     [SerializeField] protected BaseMinerAnimation[] m_MinerAnimations;
@@ -88,8 +89,9 @@ public class BaseMiner : CustomBehaviour
 
     protected virtual void TreasureHunt()
     {
-        m_MinerCollectedTreasure++;
+        MinerCollectedTreasure++;
         LastTriggedTreasureRadar.CachedComponent.ResetTreasure();
+        GameManager.Instance.Entities.OrderMinerCollectedTreasure();
     }
 
     private Coroutine m_SpeedDefaultCoroutine;

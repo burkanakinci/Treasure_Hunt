@@ -18,13 +18,18 @@ public class Entities : CustomBehaviour
     [SerializeField] private Transform[] m_ActiveParents;
     [SerializeField] private Sprite[] m_TreeSprites;
     [SerializeField] private StoneValue[] m_StoneValues;
+    [SerializeField] private Vector2[] m_Directions;
+    #endregion
+
+    #region SceneObjects
     private List<GameObject> m_GroundOnScene;
     private List<TreasureGenerator> m_TreasureGeneratorOnScene;
-    [SerializeField] private Vector2[] m_Directions;
+    private List<BaseMiner> m_Miners;
     #endregion
 
     #region Events 
     public event Action OnFreezeAllMiner;
+    public event Action<List<BaseMiner>> OnOrderMiner;
     #endregion
 
     public override void Initialize()
@@ -33,6 +38,7 @@ public class Entities : CustomBehaviour
 
         m_GroundOnScene = new List<GameObject>();
         m_TreasureGeneratorOnScene = new List<TreasureGenerator>();
+        m_Miners = new List<BaseMiner>();
     }
 
     #region ManageList
@@ -70,7 +76,30 @@ public class Entities : CustomBehaviour
             }
         }
     }
+    public void ManagerMinerList(BaseMiner _miner, ListOperation _operation)
+    {
+        if (_operation == ListOperation.Adding)
+        {
+            if (!m_Miners.Contains(_miner))
+            {
+                m_Miners.Add(_miner);
+            }
+        }
+        else if (_operation == ListOperation.Subtraction)
+        {
+            if (m_Miners.Contains(_miner))
+            {
+                m_Miners.Remove(_miner);
+            }
+        }
+    }
     #endregion
+
+    public void OrderMinerCollectedTreasure()
+    {
+        m_Miners = m_Miners.OrderByDescending((_collectedTreasure) => (_collectedTreasure.MinerCollectedTreasure)).ToList();
+        OnOrderMiner?.Invoke(m_Miners);
+    }
 
     public Vector2 GetDirection(int _direction)
     {
@@ -124,7 +153,7 @@ public class Entities : CustomBehaviour
     #region Events 
     public void FreezeAllMiner()
     {
-        OnFreezeAllMiner?.Invoke();     
+        OnFreezeAllMiner?.Invoke();
     }
     private void OnResetToMainMenu()
     {

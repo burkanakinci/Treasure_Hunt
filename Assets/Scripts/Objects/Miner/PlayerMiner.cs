@@ -25,6 +25,10 @@ public class PlayerMiner : BaseMiner
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
 
         m_PlayerMinerRadar.Initialize();
+
+        GameManager.Instance.Entities.ManagerMinerList(this, ListOperation.Adding);
+
+        MinerName = "Player";
     }
 
     private void Update()
@@ -106,7 +110,7 @@ public class PlayerMiner : BaseMiner
             m_MinerAnimations[_animationCount].CloseHole();
         }
         m_CurrentSpeed = MinerData.MinerDefaultSpeed;
-        m_MinerCollectedTreasure = 0;
+        MinerCollectedTreasure = 0;
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
     }
     private void OnCountdownFinished()

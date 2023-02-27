@@ -14,6 +14,7 @@ public class MinerData : ScriptableObject
     [SerializeField] private float m_FreezeDuration;
     [SerializeField] private LayerMask m_ObstacleLayers;
     [SerializeField] private float m_ObstacleRayDistance;
+    [SerializeField] private string[] m_OpponentMinerNames;
 
     #endregion
 
@@ -25,5 +26,6 @@ public class MinerData : ScriptableObject
     public LayerMask ObstacleLayers => m_ObstacleLayers;
     public float ObstacleRayDistance => m_ObstacleRayDistance;
     public float FreezeDuration => m_FreezeDuration;
+    public string OpponentName => m_OpponentMinerNames[Random.Range(0, m_OpponentMinerNames.Length - 1)];
     #endregion
 }

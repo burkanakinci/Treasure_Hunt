@@ -16,7 +16,15 @@ MonoBehaviour:
   m_MinerFastSpeed: 12
   m_SpeedUpDuration: 1
   m_TreasureDuration: 5
+  m_FreezeDuration: 0
   m_ObstacleLayers:
     serializedVersion: 2
     m_Bits: 896
   m_ObstacleRayDistance: 2.3
+  m_OpponentMinerNames:
+  - James
+  - Sophia
+  - William
+  - Adam
+  - Arthur
+  - Riley
