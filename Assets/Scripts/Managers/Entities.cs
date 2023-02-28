@@ -101,6 +101,12 @@ public class Entities : CustomBehaviour
         OnOrderMiner?.Invoke(m_Miners);
     }
 
+    public BaseMiner GetLastMiner()
+    {
+        OrderMinerCollectedTreasure();
+        return m_Miners[m_Miners.Count - 1];
+    }
+
     public Vector2 GetDirection(int _direction)
     {
         return m_Directions[_direction];

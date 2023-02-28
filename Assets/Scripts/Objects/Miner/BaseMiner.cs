@@ -144,7 +144,10 @@ public class BaseMiner : CustomBehaviour
 
         StartAddedFreezeCoroutine();
     }
-
+    public virtual void EliminatedMiner()
+    {
+        Debug.Log(MinerName+" is Elimanted");
+    }
     private Coroutine m_AddedFreezeCoroutine;
     private void StartAddedFreezeCoroutine()
     {

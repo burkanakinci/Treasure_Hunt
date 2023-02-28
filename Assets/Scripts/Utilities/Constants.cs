@@ -136,3 +136,10 @@ public enum ActiveParents
     Opponent = 5,
     Other=6,
 }
+
+public enum TimerBackgrounds
+{
+    Grey=0,
+    Red=1,
+    
+}

@@ -83,7 +83,6 @@ public class PlayerMiner : BaseMiner
 
     protected override void OnResetActiveTreasure()
     {
-        base.OnResetActiveTreasure();
         m_PlayerMinerRadar.SetRadar(RadarType.RadarLevel1, TriggerType.Exit);
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
     }

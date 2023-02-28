@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class MainMenuPanel : UIPanel
 {
+    [SerializeField] private float m_CountdownStartDelay=1.0f;
     [SerializeField] private StartGameButton m_StartGameButton;
     [SerializeField] private Animator m_CountDownAnimator;
     public override void Initialize(UIManager _uiManager)
@@ -49,7 +50,7 @@ public class MainMenuPanel : UIPanel
     }
     private IEnumerator CountDownFinishedCoroutine()
     {
-        yield return new WaitUntil(() => m_CountDownAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+        yield return new WaitUntil(() => m_CountDownAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= m_CountdownStartDelay);
         GameManager.Instance.CountdownFinished();
     }
     #endregion

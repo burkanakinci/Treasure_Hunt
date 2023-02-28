@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class HudPanel : UIPanel
 {
     [SerializeField] private LeaderBoard[] m_LeaderBoards;
+    [SerializeField] private Timer m_Timer;
     public override void Initialize(UIManager uiManager)
     {
         base.Initialize(uiManager);
         GameManager.Instance.Entities.OnOrderMiner += ShowLeaderBoard;
+
+        m_Timer.Initialize();
     }
 
     public override void ShowPanel()
