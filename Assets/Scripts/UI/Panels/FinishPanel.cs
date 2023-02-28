@@ -6,14 +6,17 @@ using DG.Tweening;
 public class FinishPanel : UIPanel
 {
     [Header("Fail")]
-    public CanvasGroup FailCanvas;
+    [SerializeField] private CanvasGroup m_FailCanvas;
+    [SerializeField] private NextLevelButton m_FailNextLevelButton;
 
     [Header("Success")]
-    public CanvasGroup SuccessCanvas;
-    [SerializeField] private RectTransform m_NextLevelButton;
-    public override void Initialize(UIManager uiManager)
+    [SerializeField] private CanvasGroup m_SuccessCanvas;
+    [SerializeField] private NextLevelButton m_SuccessNextLevelButton;
+
+    
+    public override void Initialize(UIManager _uiManager)
     {
-        base.Initialize(uiManager);
+        base.Initialize(_uiManager);
 
         GameManager.Instance.OnLevelFailed += OnLevelFailed;
         GameManager.Instance.OnLevelCompleted += OnLevelCompleted;
@@ -21,53 +24,30 @@ public class FinishPanel : UIPanel
         GameManager.Instance.OnLevelCompleted += ShowPanel;
         GameManager.Instance.OnResetToMainMenu += OnResetToMainMenu;
 
-        m_NextLevelButtonTweenID = GetInstanceID() + "m_NextLEvelButtonTweenID";
-
+        m_FailNextLevelButton.Initialize(_uiManager);
+        m_FailNextLevelButton.ButtonClickTweenCallBack = CachedComponent.NextLevelCallBack(false);
+        m_SuccessNextLevelButton.Initialize(_uiManager);
+        m_SuccessNextLevelButton.ButtonClickTweenCallBack = CachedComponent.NextLevelCallBack(false);
     }
 
     public override void ShowPanel()
     {
         base.ShowPanel();
-
-        m_NextLevelButton.gameObject.SetActive(true);
-        NextLevelButtonTween();
     }
-    private string m_NextLevelButtonTweenID;
-    private void NextLevelButtonTween()
-    {
-        DOTween.Kill(m_NextLevelButtonTweenID);
-
-        m_NextLevelButton.DOAnchorPosX(-25.0f, 2.0f)
-        .SetEase(Ease.InExpo)
-        .SetId(m_NextLevelButtonTweenID);
-    }
-    public void ContinueButton(bool _isRestart)
-    {
-        if (!_isRestart)
-        {
-            GameManager.Instance.PlayerManager.UpdateLevelData((GameManager.Instance.PlayerManager.GetLevelNumber() + 1));
-        }
-
-        GameManager.Instance.ResetToMainMenu();
-    }
-
 
     #region Events
     private void OnResetToMainMenu()
     {
-        m_NextLevelButton.gameObject.SetActive(false);
-        m_NextLevelButton.anchoredPosition = new Vector3(500.0f, 25.0f, 0f);
-        DOTween.Kill(m_NextLevelButtonTweenID);
     }
     private void OnLevelCompleted()
     {
-        FailCanvas.Close();
-        SuccessCanvas.Open();
+        m_FailCanvas.Close();
+        m_SuccessCanvas.Open();
     }
     private void OnLevelFailed()
     {
-        FailCanvas.Open();
-        SuccessCanvas.Close();
+        m_FailCanvas.Open();
+        m_SuccessCanvas.Close();
     }
     private void OnDestroy()
     {

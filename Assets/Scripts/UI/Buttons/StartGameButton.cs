@@ -4,9 +4,38 @@ using UnityEngine;
 
 public class StartGameButton : UIBaseButton
 {
+    [SerializeField] private CanvasGroup m_StartGameButtonCanvasGroup;
+
+    public override void Initialize(UIManager _uiManager)
+    {
+        base.Initialize(_uiManager);
+
+        GameManager.Instance.OnResetToMainMenu += OnResetToMainMenu;
+    }
     protected override void ButtonClick()
     {
         base.ButtonClick();
-        this.gameObject.SetActive(false);
+        m_StartGameButtonCanvasGroup.Close();
     }
+    #region Events 
+    private void OnResetToMainMenu()
+    {
+        m_StartGameButtonCanvasGroup.Open();
+    }
+    private void OnCountdownFinished()
+    {
+    }
+    private void OnLevelCompleted()
+    {
+    }
+    private void OnLevelFailed()
+    {
+    }
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;
+    }
+    #endregion
 }
+
+

@@ -105,7 +105,7 @@ public class PlayerMiner : BaseMiner
     public override void EliminatedMiner()
     {
         base.EliminatedMiner();
-        if (GameManager.Instance.Entities.RemainingMiner >= 3)
+        if (GameManager.Instance.Entities.RemainingMiner <= 3)
         {
             GameManager.Instance.LevelCompleted();
         }
@@ -125,6 +125,8 @@ public class PlayerMiner : BaseMiner
         m_CurrentSpeed = MinerData.MinerDefaultSpeed;
         MinerCollectedTreasure = 0;
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.IdlePlayerMinerState, true);
+
+        transform.position = Vector3.zero;
     }
     private void OnCountdownFinished()
     {

@@ -135,7 +135,6 @@ public class BaseMiner : CustomBehaviour
     {
         m_MinerAnimator.enabled = false;
         KillAllCoroutine();
-        Debug.Log(MinerName);
     }
 
     public virtual void FreezeOtherMiners()

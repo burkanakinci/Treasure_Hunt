@@ -28,7 +28,7 @@ public class HudPanel : UIPanel
     {
         for (int _leaderCount = 0; _leaderCount < 3; _leaderCount++)
         {
-            if (_leaderCount <= GameManager.Instance.Entities.RemainingMiner)
+            if (_leaderCount < GameManager.Instance.Entities.RemainingMiner)
             {
                 m_LeaderBoards[_leaderCount].SetLeaderBoard(
                      (_miners[_leaderCount].MinerCollectedTreasure),

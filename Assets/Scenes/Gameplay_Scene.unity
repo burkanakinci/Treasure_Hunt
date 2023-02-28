@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CachedComponent: {fileID: 0}
   m_CanvasGroup: {fileID: 9005241380919282776}
-  m_CountdownStartDelay: 1
+  m_CountdownStartDelay: 3
   m_StartGameButton: {fileID: 201570240}
   m_CountDownAnimator: {fileID: 1483466777}
 --- !u!1 &183226509
@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 201570239}
   - component: {fileID: 201570238}
   - component: {fileID: 201570237}
+  - component: {fileID: 201570241}
   - component: {fileID: 201570240}
   m_Layer: 5
   m_Name: StartGameButton
@@ -322,8 +323,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CachedComponent: {fileID: 0}
-  ButtonClickTweenCallBackID: 
   m_Button: {fileID: 201570237}
+  m_StartGameButtonCanvasGroup: {fileID: 201570241}
+--- !u!225 &201570241
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201570235}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &204515510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jagged
+  m_text: Burkan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbe5f6b939b39ef48ac05d45c9c7887d, type: 2}
   m_sharedMaterial: {fileID: 8355714816627111421, guid: fbe5f6b939b39ef48ac05d45c9c7887d, type: 2}
@@ -4049,19 +4062,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6160626986943689933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6160626988092808352}
-        m_TargetAssemblyTypeName: FinishPanel, Assembly-CSharp
-        m_MethodName: ContinueButton
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &6160626986943689933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,6 +4105,7 @@ GameObject:
   - component: {fileID: 6160626986943689922}
   - component: {fileID: 6160626986943689933}
   - component: {fileID: 6160626986943689932}
+  - component: {fileID: 6160626986943689936}
   m_Layer: 5
   m_Name: ContinueButton (2)
   m_TagString: Untagged
@@ -4132,6 +4134,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6160626986943689936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160626986943689934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808b7216c4918524da0edd3829f6e9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CachedComponent: {fileID: 0}
+  m_Button: {fileID: 6160626986943689932}
 --- !u!224 &6160626986967824652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4212,19 +4228,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6160626987113441649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6160626988092808352}
-        m_TargetAssemblyTypeName: FinishPanel, Assembly-CSharp
-        m_MethodName: ContinueButton
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &6160626987113441649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4267,6 +4271,7 @@ GameObject:
   - component: {fileID: 6160626987113441654}
   - component: {fileID: 6160626987113441649}
   - component: {fileID: 6160626987113441648}
+  - component: {fileID: 6160626987113441655}
   m_Layer: 5
   m_Name: ContinueButton (1)
   m_TagString: Untagged
@@ -4303,6 +4308,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160626987113441650}
   m_CullTransparentMesh: 1
+--- !u!114 &6160626987113441655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160626987113441650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808b7216c4918524da0edd3829f6e9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CachedComponent: {fileID: 0}
+  m_Button: {fileID: 6160626987113441648}
 --- !u!114 &6160626987584612680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,9 +4547,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CachedComponent: {fileID: 0}
   m_CanvasGroup: {fileID: 9005241380480897504}
-  FailCanvas: {fileID: 6160626988228247158}
-  SuccessCanvas: {fileID: 6160626988150209964}
-  m_NextLevelButton: {fileID: 6160626987113441651}
+  m_FailCanvas: {fileID: 6160626988228247158}
+  m_FailNextLevelButton: {fileID: 6160626986943689936}
+  m_SuccessCanvas: {fileID: 6160626988150209964}
+  m_SuccessNextLevelButton: {fileID: 6160626987113441655}
 --- !u!1 &6160626988150209960
 GameObject:
   m_ObjectHideFlags: 0

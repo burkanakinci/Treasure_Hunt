@@ -11,7 +11,4 @@ public class Player : CustomBehaviour
         PlayerMiner.Initialize();
         m_CameraManager.Initialize(PlayerMiner);
     }
-
-    #region Events
-    #endregion
 }

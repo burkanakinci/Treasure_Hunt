@@ -62,6 +62,10 @@ public class Timer : CustomBehaviour
             GameManager.Instance.Entities.GetLastMiner().EliminatedMiner();
             ResetTimer();
             StartTimerCountDown();
+            if (GameManager.Instance.Entities.RemainingMiner == 1)
+            {
+                GameManager.Instance.LevelCompleted();
+            }
         }
     }
 

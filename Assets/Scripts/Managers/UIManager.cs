@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class UIManager : CustomBehaviour
 {
@@ -24,6 +25,21 @@ public class UIManager : CustomBehaviour
         m_UIPanels.ForEach(x =>
         {
             x.HidePanel();
+        });
+    }
+
+    public TweenCallback NextLevelCallBack(bool _isRestart)
+    {
+
+        return new TweenCallback(() =>
+        {
+            if (!_isRestart)
+            {
+                GameManager.Instance.PlayerManager.UpdateLevelData((GameManager.Instance.PlayerManager.GetLevelNumber() + 1));
+            }
+
+            GameManager.Instance.ResetToMainMenu();
+
         });
     }
     #region GetterSetter
