@@ -74,9 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c402b1c34964a04cb40e7e8e5620c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinerName: 
+  m_NameText: {fileID: 3536138099028915063}
   MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
   m_PlayerMinerRB: {fileID: 7232788139691540253}
   m_MinerAnimator: {fileID: 529412268818555052}
+  MinerCollectedTreasure: 0
   LastTriggedTreasureRadar: {fileID: 0}
   m_MinerAnimations:
   - {fileID: 3655960616725195074}
@@ -91,6 +94,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 457116273117455993, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 72296683153076965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3536138099028915063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3463896685679264146, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 72296683153076965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3655960616725195074 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3727940064986930087, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}

@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class MainMenuPanel : UIPanel
 {
+    [SerializeField] private TextMeshProUGUI m_Level;
     [SerializeField] private float m_CountdownStartDelay = 1.0f;
     [SerializeField] private StartGameButton m_StartGameButton;
     [SerializeField] private Animator m_CountDownAnimator;
@@ -62,6 +63,7 @@ public class MainMenuPanel : UIPanel
     {
         ShowPanel();
         m_CountDownAnimator.enabled = false;
+        m_Level.text = "Level : " + GameManager.Instance.PlayerManager.GetLevelNumber();
     }
     private void OnCountdownFinished()
     {

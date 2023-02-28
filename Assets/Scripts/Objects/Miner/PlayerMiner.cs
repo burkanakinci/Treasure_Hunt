@@ -28,7 +28,7 @@ public class PlayerMiner : BaseMiner
 
         GameManager.Instance.Entities.ManagerMinerList(this, ListOperation.Adding);
 
-        MinerName = "Player";
+        SetMinerName();
     }
 
     private void Update()
@@ -46,6 +46,12 @@ public class PlayerMiner : BaseMiner
         SetMinerAnimatorSpeedValue(_speed);
         SetMinerVelocity(new Vector2(_horizontalValue, _verticalValue));
         SetMinerAnimatorValues(_horizontalValue, _verticalValue);
+    }
+
+    protected override void SetMinerName()
+    {
+        MinerName = "Player";
+        m_NameText.text = MinerName;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

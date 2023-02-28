@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CachedComponent: {fileID: 0}
   m_CanvasGroup: {fileID: 9005241380919282776}
+  m_Level: {fileID: 1868491681}
   m_CountdownStartDelay: 3
   m_StartGameButton: {fileID: 201570240}
   m_CountDownAnimator: {fileID: 1483466777}
@@ -2176,7 +2177,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1644437763
 GameObject:
@@ -2527,7 +2528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level : 1'
+  m_text: LevelCount
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbe5f6b939b39ef48ac05d45c9c7887d, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 542b86bc26e7142429b86ae12c7e00a4, type: 2}
@@ -2554,10 +2555,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.5
-  m_fontSizeBase: 36
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 10
   m_fontSizeMax: 100
   m_fontStyle: 0
@@ -2605,7 +2606,7 @@ RectTransform:
   m_GameObject: {fileID: 1868491683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 577122865}
@@ -4914,7 +4915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &8843422547081688326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4950,7 +4951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8843422547568775286
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,8 +37,6 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
     public virtual void OnObjectSpawn()
     {
-        MinerName=MinerData.OpponentName;
-
         for (int _animationCount = m_MinerAnimations.Length - 1; _animationCount >= 0; _animationCount--)
         {
             m_MinerAnimations[_animationCount].CloseHole();
@@ -48,6 +46,8 @@ public class OpponentMiner : BaseMiner, IPooledObject
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
 
         GameManager.Instance.Entities.ManagerMinerList(this,ListOperation.Adding);
+
+        SetMinerName();
 
         GameManager.Instance.Entities.OnFreezeAllMiner += FreezeMiner;
         GameManager.Instance.LevelManager.OnCleanSceneObject += OnObjectDeactive;

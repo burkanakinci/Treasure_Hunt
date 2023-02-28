@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BaseMiner : CustomBehaviour
 {
 
     #region Fields
     [HideInInspector] public string MinerName;
+    [SerializeField] protected TextMeshPro m_NameText;
     protected float m_CurrentSpeed;
     public MinerData MinerData;
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
@@ -22,6 +24,11 @@ public class BaseMiner : CustomBehaviour
 
         m_MinerAnimations[0].Initialize(AnimationStates.HOLE);
 
+    }
+    protected virtual void SetMinerName()
+    {
+        MinerName = MinerData.OpponentName;
+        m_NameText.text = MinerName;
     }
     public void SetMinerVelocity(Vector2 _targetVelocity)
     {
@@ -146,7 +153,7 @@ public class BaseMiner : CustomBehaviour
     }
     public virtual void EliminatedMiner()
     {
-        
+
     }
     private Coroutine m_AddedFreezeCoroutine;
     private void StartAddedFreezeCoroutine()
