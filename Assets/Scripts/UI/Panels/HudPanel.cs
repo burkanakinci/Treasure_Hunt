@@ -28,10 +28,21 @@ public class HudPanel : UIPanel
     {
         for (int _leaderCount = 0; _leaderCount < 3; _leaderCount++)
         {
-            m_LeaderBoards[_leaderCount].SetLeaderBoard(
-                ((_miners[_leaderCount] == null ? (0) : (_miners[_leaderCount].MinerCollectedTreasure))),
-                ((_miners[_leaderCount] == null ? ("ELIMINATED") : (_miners[_leaderCount].MinerName)))
-            );
+            if (_leaderCount <= GameManager.Instance.Entities.RemainingMiner)
+            {
+                m_LeaderBoards[_leaderCount].SetLeaderBoard(
+                     (_miners[_leaderCount].MinerCollectedTreasure),
+                     ((_miners[_leaderCount].MinerName))
+                );
+            }
+            else
+            {
+                m_LeaderBoards[_leaderCount].SetLeaderBoard(
+                     (-1),
+                     ("ELIMINATED")
+                );
+            }
+
         }
     }
 }

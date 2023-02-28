@@ -101,6 +101,20 @@ public class PlayerMiner : BaseMiner
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
         base.DissolveMiner();
     }
+
+    public override void EliminatedMiner()
+    {
+        base.EliminatedMiner();
+        if (GameManager.Instance.Entities.RemainingMiner >= 3)
+        {
+            GameManager.Instance.LevelCompleted();
+        }
+        else
+        {
+            GameManager.Instance.LevelFailed();
+        }
+
+    }
     #region Events 
     private void OnResetToMainMenu()
     {

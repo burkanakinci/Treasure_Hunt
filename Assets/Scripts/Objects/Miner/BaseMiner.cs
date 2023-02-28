@@ -135,6 +135,7 @@ public class BaseMiner : CustomBehaviour
     {
         m_MinerAnimator.enabled = false;
         KillAllCoroutine();
+        Debug.Log(MinerName);
     }
 
     public virtual void FreezeOtherMiners()
@@ -146,7 +147,7 @@ public class BaseMiner : CustomBehaviour
     }
     public virtual void EliminatedMiner()
     {
-        Debug.Log(MinerName+" is Elimanted");
+        
     }
     private Coroutine m_AddedFreezeCoroutine;
     private void StartAddedFreezeCoroutine()
@@ -167,6 +168,6 @@ public class BaseMiner : CustomBehaviour
 
     public virtual void DissolveMiner()
     {
-        m_MinerAnimator.enabled = false;
+        m_MinerAnimator.enabled = true;
     }
 }

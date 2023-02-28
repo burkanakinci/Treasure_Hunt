@@ -4528,6 +4528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CachedComponent: {fileID: 0}
   m_CanvasGroup: {fileID: 9005241380480897504}
+  FailCanvas: {fileID: 6160626988228247158}
+  SuccessCanvas: {fileID: 6160626988150209964}
   m_NextLevelButton: {fileID: 6160626987113441651}
 --- !u!1 &6160626988150209960
 GameObject:

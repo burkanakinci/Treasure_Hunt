@@ -55,7 +55,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
     public virtual void OnObjectDeactive()
     {
-        GameManager.Instance.Entities.ManagerMinerList(this,ListOperation.Adding);
+        GameManager.Instance.Entities.ManagerMinerList(this,ListOperation.Subtraction);
 
         GameManager.Instance.Entities.OnFreezeAllMiner -= FreezeMiner;
 
@@ -216,6 +216,13 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState, true);
         base.DissolveMiner();
+    }
+
+    public override void EliminatedMiner()
+    {
+        base.EliminatedMiner();
+
+        OnObjectDeactive();
     }
     #region Events 
     private void OnResetToMainMenu()

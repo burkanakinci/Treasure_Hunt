@@ -16,7 +16,7 @@ public class LeaderBoard : CustomBehaviour
 
     public void SetLeaderBoard(int _collectedCount, string _name)
     {
-        m_MinerCollectedTreasureText.text = _collectedCount.ToString();
+        m_MinerCollectedTreasureText.text = (_collectedCount >= 0) ? (_collectedCount.ToString()) : ("");
         m_MinerNameText.text = _name;
     }
 }

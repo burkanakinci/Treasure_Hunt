@@ -19,6 +19,8 @@ public class Entities : CustomBehaviour
     [SerializeField] private Sprite[] m_TreeSprites;
     [SerializeField] private StoneValue[] m_StoneValues;
     [SerializeField] private Vector2[] m_Directions;
+
+    public int RemainingMiner => m_Miners.Count;
     #endregion
 
     #region SceneObjects
