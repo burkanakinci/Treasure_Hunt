@@ -69,6 +69,14 @@ public class TreasureCoin : PooledObject
             (m_EarnedMiner.transform.position),
             (m_CoinData.EarnedMovementDuration)
         ).
+        OnUpdate(() =>
+        {
+            if (!m_EarnedMiner.enabled)
+            {
+                DOTween.Kill(m_CoinEarnedTweenID);
+                OnObjectDeactive();
+            }
+        }).
         OnComplete(() =>
         {
             m_EarnedMiner.MinerCollectedTreasure++;
