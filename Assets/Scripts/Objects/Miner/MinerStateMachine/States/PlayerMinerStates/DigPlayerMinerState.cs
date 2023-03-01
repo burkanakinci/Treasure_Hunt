@@ -14,6 +14,7 @@ public class DigPlayerMinerState : IMinerState
 
     public void Enter()
     {
+        GameManager.Instance.InputManager.OnSwipeJoystick -= m_Miner.MoveMinerByJoystick;
         m_Miner.SetMinerAnimatorTriggers(MinerAnimationParameters.DIG_TRIGGER);
         m_Miner.GetMinerAnimation(MinerAnimations.Hole).OpenAnimation(m_Miner.transform.position);
         m_OnDigging = true;

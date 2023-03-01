@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\RunOpponentMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\ReturnOpponentMinerState.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Taptic.cs" />
      <Compile Include="Assets\Scripts\Objects\Treasure\TreasureRadar.cs" />
      <Compile Include="Assets\Scripts\UI\Panels\UIPanel.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\Radar.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\SearchTreasureOpponentState.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
+     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Example.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Scripts\Objects\Stone.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\DigPlayerMinerState.cs" />
@@ -90,6 +92,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\FreezeOpponentMinerState.cs" />
      <Compile Include="Assets\Scripts\UI\Timer.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\IdleOpponentMinerState.cs" />
+     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\AndroidTaptic.cs" />
      <Compile Include="Assets\Scripts\Objects\Treasure\TreeObstacle.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectScripts\MinerData.cs" />
      <Compile Include="Assets\Scripts\BaseStateMachine.cs" />
@@ -112,9 +115,6 @@
      <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
      <Compile Include="Assets\Scripts\Objects\Treasure\TreasureGenerator.cs" />
      <Compile Include="Assets\Scripts\UI\LeaderBoard.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Example.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Taptic.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\AndroidTaptic.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
