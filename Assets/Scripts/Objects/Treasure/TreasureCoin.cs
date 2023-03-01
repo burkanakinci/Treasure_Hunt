@@ -18,8 +18,7 @@ public class TreasureCoin : PooledObject
     {
         base.OnObjectSpawn();
         m_CoinVisual.localScale = Vector3.zero;
-        CoinSpawnJumpTween();
-        CoinSpawnScaleTween();
+
     }
     public override void OnObjectDeactive()
     {
@@ -37,7 +36,7 @@ public class TreasureCoin : PooledObject
 
     private string m_CoinSpawnMovementTweenID;
     private string m_CoinSpawnScaleTweenID;
-    private void CoinSpawnJumpTween()
+    public void CoinSpawnJumpTween()
     {
         DOTween.Kill(m_CoinSpawnMovementTweenID);
 
@@ -50,7 +49,7 @@ public class TreasureCoin : PooledObject
         ).
         SetId(m_CoinSpawnMovementTweenID);
     }
-    private void CoinSpawnScaleTween()
+    public void CoinSpawnScaleTween()
     {
         DOTween.Kill(m_CoinSpawnScaleTweenID);
 
@@ -75,6 +74,7 @@ public class TreasureCoin : PooledObject
             m_EarnedMiner.MinerCollectedTreasure++;
             GameManager.Instance.Entities.OrderMinerCollectedTreasure();
             m_EarnedMiner.EarnedCoin -= CoinEarnedMovement;
+            OnObjectDeactive();
         }).
         SetId(m_CoinEarnedTweenID);
     }

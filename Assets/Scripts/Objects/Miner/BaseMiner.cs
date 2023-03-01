@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using DG.Tweening;
 
 public class BaseMiner : CustomBehaviour
 {
@@ -30,6 +31,7 @@ public class BaseMiner : CustomBehaviour
     {
 
         m_MinerAnimations[0].Initialize(AnimationStates.HOLE);
+        m_OnResetTreasureDelayedCallID = GetInstanceID() + "m_OnResetTreasureDelayedCallID";
 
     }
     protected virtual void SetMinerName()
@@ -104,7 +106,7 @@ public class BaseMiner : CustomBehaviour
 
     protected virtual void TreasureHunt()
     {
-        EarnedCoin?.Invoke();
+        LastTriggedTreasureRadar.CachedComponent.ResetTreasure();
     }
 
     private Coroutine m_SpeedDefaultCoroutine;
@@ -128,8 +130,16 @@ public class BaseMiner : CustomBehaviour
         m_CurrentSpeed = MinerData.MinerDefaultSpeed;
     }
 
+    private string m_OnResetTreasureDelayedCallID;
     protected virtual void OnResetActiveTreasure()
     {
+        DOTween.Kill(m_OnResetTreasureDelayedCallID);
+
+        DOVirtual.DelayedCall((0.8f), () =>
+        {
+            EarnedCoin?.Invoke();
+        }).
+        SetId(m_OnResetTreasureDelayedCallID);
     }
 
     protected virtual void KillAllCoroutine()

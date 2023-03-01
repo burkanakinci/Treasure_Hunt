@@ -15,7 +15,7 @@ MonoBehaviour:
   m_MinerDefaultSpeed: 6
   m_MinerFastSpeed: 12
   m_SpeedUpDuration: 1
-  m_TreasureDuration: 5
+  m_TreasureDuration: 3
   m_FreezeDuration: 2
   m_ObstacleLayers:
     serializedVersion: 2

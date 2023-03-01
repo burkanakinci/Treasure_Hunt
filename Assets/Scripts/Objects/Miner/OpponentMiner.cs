@@ -197,6 +197,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     protected override void OnResetActiveTreasure()
     {
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
+        base.OnResetActiveTreasure();
     }
 
     public BaseMinerAnimation GetMinerAnimation(MinerAnimations _minerAnimation)

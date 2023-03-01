@@ -21,7 +21,6 @@ public class TreasureGenerator : PooledObject
     public override void Initialize()
     {
         base.Initialize();
-        m_CoinSpawnDelayedCallID = GetInstanceID() + "m_CoinSpawnDelayedCallID";
 
         for (int _radarCount = m_TreasureRadars.Length - 1; _radarCount >= 0; _radarCount--)
         {
@@ -94,41 +93,35 @@ public class TreasureGenerator : PooledObject
     #region CoinArea
     private int m_TempCoinCount, m_CoinCounter;
     private float m_SpawnCoinValue;
-    private string m_CoinSpawnDelayedCallID;
     public void SpawnCoin(BaseMiner _miner)
     {
-        return;
         m_TempCoinCount = m_TreasureGeneratorData.TreasureEarnCount;
         m_EarnedMiner = _miner;
         m_CoinCounter = 0;
         m_SpawnCoinValue = 0.0f;
 
-        DOTween.To(() => m_SpawnCoinValue, x => m_SpawnCoinValue = x, (2.0f), (2.0f)).
-        OnUpdate(
-            () =>
-            {
-                SpawnCoinCoroutine(UnityEngine.Random.Range(0.02f, (m_TreasureGeneratorData.TreasureEarnCount - m_SpawnCoinValue)) - 0.25f);
-            }
-            ).
-        OnComplete(
-            () =>
-            {
-                ResetTreasure();
-            }
-            ).
-        SetId(m_CoinSpawnDelayedCallID);
-
+        for (int _coinCount = m_TempCoinCount; _coinCount > 0; _coinCount--)
+        {
+            StartCoroutine(SpawnCoinCoroutine(UnityEngine.Random.Range(1.5f, 2.5f)));
+        }
     }
 
+    private TreasureCoin m_SpawnedTempCoin;
     private IEnumerator SpawnCoinCoroutine(float _spawnDelay)
     {
+        m_CoinCounter++;
         yield return new WaitForSeconds(_spawnDelay);
-        GameManager.Instance.ObjectPool.SpawnFromPool(
+        Debug.Log("Coin Spawned");
+        m_SpawnedTempCoin = GameManager.Instance.ObjectPool.SpawnFromPool(
             (PooledObjectTags.TREASURE_COIN),
             (m_EarnedMiner.transform.position),
             (Quaternion.identity),
             (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Other))
-        ).GetGameObject().GetComponent<TreasureCoin>().SetEarnedMiner(m_EarnedMiner);
+        ).GetGameObject().GetComponent<TreasureCoin>();
+
+        m_SpawnedTempCoin.SetEarnedMiner(m_EarnedMiner);
+        m_SpawnedTempCoin.CoinSpawnJumpTween();
+        m_SpawnedTempCoin.CoinSpawnScaleTween();
     }
 
 

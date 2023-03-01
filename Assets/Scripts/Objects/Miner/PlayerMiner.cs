@@ -44,9 +44,10 @@ public class PlayerMiner : BaseMiner
     private Vector2 m_CurrentVelocity;
     public void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)
     {
-        SetMinerAnimatorSpeedValue(_speed);
+
         m_CurrentVelocity.x = _horizontalValue;
         m_CurrentVelocity.y = _verticalValue;
+        SetMinerAnimatorSpeedValue(_speed);
         SetMinerAnimatorValues(_horizontalValue, _verticalValue);
     }
 
@@ -93,6 +94,7 @@ public class PlayerMiner : BaseMiner
     {
         m_PlayerMinerRadar.SetRadar(RadarType.RadarLevel1, TriggerType.Exit);
         PlayerMinerStateMachine.ChangeState((int)PlayerMinerStates.RunPlayerMinerState, true);
+        base.OnResetActiveTreasure();
     }
     public BaseMinerAnimation GetMinerAnimation(MinerAnimations _minerAnimation)
     {

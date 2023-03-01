@@ -24,5 +24,6 @@ public class RunPlayerMinerState : IMinerState
     public void Exit()
     {
         GameManager.Instance.InputManager.OnSwipeJoystick -= m_Miner.MoveMinerByJoystick;
+        m_Miner.MoveMinerByJoystick(0.0f, 0.0f, 0.0f);
     }
 }
