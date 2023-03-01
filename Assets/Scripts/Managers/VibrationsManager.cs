@@ -7,4 +7,9 @@ public class VibrationsManager : CustomBehaviour
     public override void Initialize()
     {
     }
+
+    public void PlayVibration(HapticTypes hapticType)
+    {
+        MMVibrationManager.Haptic(hapticType);
+    }
 }

@@ -21,13 +21,26 @@ public class Radar : CustomBehaviour
             {
                 CurrentRadarTypeValue = ((int)_radarType);
                 SetRadarSprite();
+
+                switch (_radarType)
+                {
+                    case RadarType.RadarLevel1:
+                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
+                        break;
+                    case RadarType.RadarLevel2:
+                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+                        break;
+                    case RadarType.RadarLevel3:
+                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.HeavyImpact);
+                        break;
+                }
             }
         }
         else if (_triggerType == TriggerType.Exit)
         {
             if ((CurrentRadarTypeValue) >= ((int)_radarType))
             {
-                CurrentRadarTypeValue = ((int)_radarType-1);
+                CurrentRadarTypeValue = ((int)_radarType - 1);
                 SetRadarSprite();
             }
         }
@@ -41,7 +54,7 @@ public class Radar : CustomBehaviour
     #region Events 
     private void OnResetToMainMenu()
     {
-        CurrentRadarTypeValue=-1;
+        CurrentRadarTypeValue = -1;
         SetRadarSprite();
     }
     private void OnCountdownFinished()
