@@ -143,5 +143,11 @@ public enum TimerBackgrounds
 {
     Grey = 0,
     Red = 1,
+}
 
+public enum HapticTypeOnPlayer
+{
+    Light,
+    Medium,
+    Heavy
 }

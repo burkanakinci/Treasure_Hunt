@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Radar : CustomBehaviour
 {
     public int CurrentRadarTypeValue;
@@ -25,13 +24,13 @@ public class Radar : CustomBehaviour
                 switch (_radarType)
                 {
                     case RadarType.RadarLevel1:
-                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
+                        GameManager.Instance.VibrationsManager.PlayVibration(HapticTypeOnPlayer.Light);
                         break;
                     case RadarType.RadarLevel2:
-                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+                        GameManager.Instance.VibrationsManager.PlayVibration(HapticTypeOnPlayer.Medium);
                         break;
                     case RadarType.RadarLevel3:
-                        GameManager.Instance.VibrationsManager.PlayVibration(MoreMountains.NiceVibrations.HapticTypes.HeavyImpact);
+                        GameManager.Instance.VibrationsManager.PlayVibration(HapticTypeOnPlayer.Heavy);
                         break;
                 }
             }

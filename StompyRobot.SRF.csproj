@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{648ecbb7-6477-0726-181a-d59ce97bc4be}</ProjectGuid>
+    <ProjectGuid>{b9e114f1-cc50-0458-ec7b-1519bf6e5fbf}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>StompyRobot.SRF</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -36,108 +36,62 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Interfaces\IMinerState.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Utilities.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\FreezePlayerMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\OpponentMinerStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\DigOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Treasure\TreasureCoin.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Constants.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
-     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\RunOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\ReturnOpponentMinerState.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-     <Compile Include="Assets\Scripts\Objects\Treasure\TreasureRadar.cs" />
-     <Compile Include="Assets\Scripts\UI\Panels\UIPanel.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\Radar.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\PlayerMinerStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\RunPlayerMinerState.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\TreasureGeneratorData.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\ParticlePooledObjects.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\BaseMiner.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\BaseMinerAnimation.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-     <Compile Include="Assets\Scripts\LevelDataCreator\LevelCreatorEditor.cs" />
-     <Compile Include="Assets\Scripts\UI\Buttons\UIBaseButton.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\SearchTreasureOpponentState.cs" />
-     <Compile Include="Assets\Scripts\Player\Player.cs" />
-     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-     <Compile Include="Assets\Scripts\Objects\Stone.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\DigPlayerMinerState.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Examples\JoystickPlayerExample.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IPooledObject.cs" />
-     <Compile Include="Assets\Scripts\UI\Buttons\NextLevelButton.cs" />
-     <Compile Include="Assets\Scripts\UI\Buttons\StartGameButton.cs" />
-     <Compile Include="Assets\Scripts\Objects\Collactables\FreezeBoost.cs" />
-     <Compile Include="Assets\Scripts\UI\Panels\MainMenuPanel.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\OpponentMiner.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Base\Joystick.cs" />
-     <Compile Include="Assets\Scripts\Managers\ObjectPool.cs" />
-     <Compile Include="Assets\Scripts\UI\Panels\HudPanel.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\CoinData.cs" />
-     <Compile Include="Assets\Scripts\Objects\AnimationPooledObject.cs" />
-     <Compile Include="Assets\Scripts\Managers\VibrationsManager.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Examples\JoystickSetterExample.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\LevelData.cs" />
-     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\FreezeOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\UI\Timer.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\IdleOpponentMinerState.cs" />
-     <Compile Include="Assets\Scripts\Objects\Treasure\TreeObstacle.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\MinerData.cs" />
-     <Compile Include="Assets\Scripts\BaseStateMachine.cs" />
-     <Compile Include="Assets\Scripts\LevelDataCreator\LevelDataCreator.cs" />
-     <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-     <Compile Include="Assets\Scripts\Objects\PooledObject.cs" />
-     <Compile Include="Assets\Scripts\Utilities\JsonConverter.cs" />
-     <Compile Include="Assets\Scripts\Objects\Collactables\SpeedBoost.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\CameraData.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
-     <Compile Include="Assets\Scripts\Managers\Entities.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
-     <Compile Include="Assets\Scripts\UI\Panels\FinishPanel.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
-     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IBoost.cs" />
-     <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-     <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Objects\Treasure\TreasureGenerator.cs" />
-     <Compile Include="Assets\Scripts\UI\LeaderBoard.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Example.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\Taptic.cs" />
-     <Compile Include="Assets\OtherPackages\FatMachines\TapticFeedback\AndroidTaptic.cs" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\OtherPackages\FatMachines\TapticFeedback\Plugins\Android\AndroidManifest.xml" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\OtherPackages\Treasure Hunt\AssetFolders\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\SRNumberButton.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\AssetUtil.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\PropertyReference.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\External\MiniJSON.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\MethodReference.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\SRSpinner.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRInstantiate.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Components\SRAutoSingleton.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Coroutines.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\SRNumberSpinner.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRDebugUtil.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\IAsyncService.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\ResponsiveBase.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\IListExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\SRRetinaScaler.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\CopyLayoutElement.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\ContentFitText.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\StyleComponent.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRReflection.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\External\Jetbrains.Annotations.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\Hierarchy.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\CopySizeIntoLayoutElement.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\LongPressButton.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Collections\SRList.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\SRSceneServiceBase.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\Unselectable.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\ResponsiveResize.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\SRDependencyServiceBase.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\StyleSheet.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\StyleRoot.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\TransformExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\Layout\FlowLayoutGroup.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRFileUtil.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Components\SRMonoBehaviourEx.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Internal\ComponentMenuPaths.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\FlashGraphic.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\InheritColour.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\SRText.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Components\SRMonoBehaviour.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\Layout\VirtualVerticalLayoutGroup.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\ScrollToBottomBehaviour.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\StringExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\CopyPreferredSize.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\SRServiceManager.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\SRServiceBase.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRMath.Tweening.Functions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\NetFxExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\ResponsiveEnable.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRMath.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\UI\DragHandle.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\GameObjectExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Helpers\SRMath.Tweening.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Service\Attributes.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Extensions\FloatExtensions.cs" />
+     <Compile Include="Assets\OtherPackages\StompyRobot\SRF\Scripts\Components\SRSingleton.cs" />
+     <None Include="Assets\OtherPackages\StompyRobot\SRF\StompyRobot.SRF.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -375,17 +329,53 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+        <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+        <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+        <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+        <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.YamlDotNet">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+        <HintPath>D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.TextureAssets">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+        <HintPath>D:\UnityProjects\TreasureHunt\Library\PackageCache\com.unity.collab-proxy@1.17.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
         <HintPath>D:\UnityProjects\TreasureHunt\Assets\OtherPackages\Demigiant\DOTween\DOTween.dll</HintPath>
@@ -777,137 +767,11 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>D:\Program Files\UnityEditor\2021.3.16f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Path.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Runtime">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-        <HintPath>D:\UnityProjects\TreasureHunt\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
