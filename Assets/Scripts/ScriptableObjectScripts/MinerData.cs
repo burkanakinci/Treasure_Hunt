@@ -15,6 +15,8 @@ public class MinerData : ScriptableObject
     [SerializeField] private LayerMask m_ObstacleLayers;
     [SerializeField] private float m_ObstacleRayDistance;
     [SerializeField] private string[] m_OpponentMinerNames;
+    [SerializeField] private Color m_FreezeColor;
+    [SerializeField] private Color m_DefaultColor;
 
     #endregion
 
@@ -26,6 +28,9 @@ public class MinerData : ScriptableObject
     public LayerMask ObstacleLayers => m_ObstacleLayers;
     public float ObstacleRayDistance => m_ObstacleRayDistance;
     public float FreezeDuration => m_FreezeDuration;
+    public Color FreezeColor => m_FreezeColor;
+    public Color DefaultColor => m_DefaultColor;
     public string OpponentName => m_OpponentMinerNames[Random.Range(0, m_OpponentMinerNames.Length - 1)];
+
     #endregion
 }

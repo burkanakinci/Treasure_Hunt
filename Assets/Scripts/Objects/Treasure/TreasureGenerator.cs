@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class TreasureGenerator : PooledObject
 {
     #region Fields
-
+    [SerializeField] private TreasureGeneratorData m_TreasureGeneratorData;
     [SerializeField] private Transform m_RadarParents;
     [SerializeField] private TreasureRadar[] m_TreasureRadars;
     public float GenerateRefreshRate;
@@ -16,9 +17,11 @@ public class TreasureGenerator : PooledObject
     #region Events
     public event Action OnResetTreasure;
     #endregion
+
     public override void Initialize()
     {
         base.Initialize();
+        m_CoinSpawnDelayedCallID = GetInstanceID() + "m_CoinSpawnDelayedCallID";
 
         for (int _radarCount = m_TreasureRadars.Length - 1; _radarCount >= 0; _radarCount--)
         {
@@ -27,7 +30,7 @@ public class TreasureGenerator : PooledObject
     }
     public override void OnObjectSpawn()
     {
-        OnResetTreasure+=OnResetTreasureGenerator;
+        OnResetTreasure += OnResetTreasureGenerator;
         GameManager.Instance.Entities.ManageTreasureGeneratorList(this, ListOperation.Adding);
         m_RadarParents.gameObject.SetActive(true);
         ResetTreasureAllRadar();
@@ -35,7 +38,7 @@ public class TreasureGenerator : PooledObject
     }
     public override void OnObjectDeactive()
     {
-        OnResetTreasure-=OnResetTreasureGenerator;
+        OnResetTreasure -= OnResetTreasureGenerator;
         KillAlCoroutine();
         GameManager.Instance.Entities.ManageTreasureGeneratorList(this, ListOperation.Subtraction);
         m_RadarParents.gameObject.SetActive(false);
@@ -79,6 +82,7 @@ public class TreasureGenerator : PooledObject
         OnObjectSpawn();
     }
 
+    private BaseMiner m_EarnedMiner;
     private void KillAlCoroutine()
     {
         if (m_RefreshTreasureCoroutine != null)
@@ -86,4 +90,47 @@ public class TreasureGenerator : PooledObject
             StopCoroutine(m_RefreshTreasureCoroutine);
         }
     }
+
+    #region CoinArea
+    private int m_TempCoinCount, m_CoinCounter;
+    private float m_SpawnCoinValue;
+    private string m_CoinSpawnDelayedCallID;
+    public void SpawnCoin(BaseMiner _miner)
+    {
+        return;
+        m_TempCoinCount = m_TreasureGeneratorData.TreasureEarnCount;
+        m_EarnedMiner = _miner;
+        m_CoinCounter = 0;
+        m_SpawnCoinValue = 0.0f;
+
+        DOTween.To(() => m_SpawnCoinValue, x => m_SpawnCoinValue = x, (2.0f), (2.0f)).
+        OnUpdate(
+            () =>
+            {
+                SpawnCoinCoroutine(UnityEngine.Random.Range(0.02f, (m_TreasureGeneratorData.TreasureEarnCount - m_SpawnCoinValue)) - 0.25f);
+            }
+            ).
+        OnComplete(
+            () =>
+            {
+                ResetTreasure();
+            }
+            ).
+        SetId(m_CoinSpawnDelayedCallID);
+
+    }
+
+    private IEnumerator SpawnCoinCoroutine(float _spawnDelay)
+    {
+        yield return new WaitForSeconds(_spawnDelay);
+        GameManager.Instance.ObjectPool.SpawnFromPool(
+            (PooledObjectTags.TREASURE_COIN),
+            (m_EarnedMiner.transform.position),
+            (Quaternion.identity),
+            (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Other))
+        ).GetGameObject().GetComponent<TreasureCoin>().SetEarnedMiner(m_EarnedMiner);
+    }
+
+
+    #endregion
 }

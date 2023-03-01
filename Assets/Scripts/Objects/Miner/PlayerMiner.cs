@@ -39,12 +39,14 @@ public class PlayerMiner : BaseMiner
     private void FixedUpdate()
     {
         PlayerMinerStateMachine.PhysicalUpdate();
+        SetMinerVelocity(new Vector2(m_CurrentVelocity.x, m_CurrentVelocity.y));
     }
-
+    private Vector2 m_CurrentVelocity;
     public void MoveMinerByJoystick(float _speed, float _horizontalValue, float _verticalValue)
     {
         SetMinerAnimatorSpeedValue(_speed);
-        SetMinerVelocity(new Vector2(_horizontalValue, _verticalValue));
+        m_CurrentVelocity.x = _horizontalValue;
+        m_CurrentVelocity.y = _verticalValue;
         SetMinerAnimatorValues(_horizontalValue, _verticalValue);
     }
 
@@ -126,7 +128,7 @@ public class PlayerMiner : BaseMiner
     {
         for (int _animationCount = m_MinerAnimations.Length - 1; _animationCount >= 0; _animationCount--)
         {
-            m_MinerAnimations[_animationCount].CloseHole();
+            m_MinerAnimations[_animationCount].CloseAnimation();
         }
         m_CurrentSpeed = MinerData.MinerDefaultSpeed;
         MinerCollectedTreasure = 0;

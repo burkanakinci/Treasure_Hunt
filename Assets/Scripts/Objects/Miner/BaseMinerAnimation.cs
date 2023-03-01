@@ -9,16 +9,15 @@ public class BaseMinerAnimation : CustomBehaviour<string>
     public override void Initialize(string _baseStateName)
     {
         m_AnimationState = _baseStateName;
-        CloseHole();
+        CloseAnimation();
     }
 
-    public void OpenHole(Vector2 _minerPos)
+    public void OpenAnimation(Vector2 _minerPos)
     {
-        m_HoleAnimator.transform.position = _minerPos + Vector2.down;
         m_HoleAnimator.gameObject.SetActive(true);
         m_HoleAnimator.Play(m_AnimationState, 0, 0.0f);
     }
-    public void CloseHole()
+    public void CloseAnimation()
     {
         m_HoleAnimator.gameObject.SetActive(false);
     }

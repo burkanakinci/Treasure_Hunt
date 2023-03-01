@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class OpponentMiner : BaseMiner, IPooledObject
 {
-    #region Fields
-    [SerializeField] private BoostTrigger m_BoostTrigger;
-    #endregion
     #region PooledFields
     private Transform m_DeactiveParent;
     private string m_PooledTag;
     #endregion
     #region StatesFields
+    public OpponentMinerStateMachine OpponentStateMachine;
     [SerializeField] private Transform m_RayTransform;
     #endregion
     public OpponentDifficulty OpponentCurrentDifficulty;
-    public OpponentMinerStateMachine OpponentStateMachine;
+    
     public override void Initialize()
     {
         base.Initialize();
@@ -39,7 +37,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     {
         for (int _animationCount = m_MinerAnimations.Length - 1; _animationCount >= 0; _animationCount--)
         {
-            m_MinerAnimations[_animationCount].CloseHole();
+            m_MinerAnimations[_animationCount].CloseAnimation();
         }
         m_CurrentSpeed = MinerData.MinerDefaultSpeed;
 

@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4743148807673066858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2815786258998271392}
+  m_Layer: 6
+  m_Name: RayTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2815786258998271392
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743148807673066858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1174644279781938166}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7722910462042814847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,6 +114,16 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7305083849975778808, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 7722910462042814847}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1174644279781938166 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8890218478119512713, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 7722910462042814847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1324370048913130766 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8740450789662129265, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 7722910462042814847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6381890501062927064 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3727940064986930087, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
@@ -119,15 +165,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinerName: 
   m_NameText: {fileID: 6575098823379876077}
+  m_MinerRenderer: {fileID: 7887292724735077175}
   MinerData: {fileID: 11400000, guid: 26c2d74f05a49534aa1f950d1800f1d4, type: 2}
   m_PlayerMinerRB: {fileID: 1030643903768458375}
   m_MinerAnimator: {fileID: 7887292724735077174}
+  m_FreezeParticle: {fileID: 1324370048913130766}
   MinerCollectedTreasure: 0
   LastTriggedTreasureRadar: {fileID: 0}
   m_MinerAnimations:
   - {fileID: 6381890501062927064}
-  m_BoostTrigger: {fileID: 0}
-  m_RayTransform: {fileID: 0}
+  m_RayTransform: {fileID: 2815786258998271392}
   OpponentCurrentDifficulty: 0
   LastEnteredRadarPos: {x: 0, y: 0}
   LastTestedDirection: 0
@@ -135,5 +182,10 @@ MonoBehaviour:
 --- !u!95 &7887292724735077174 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 457116272902984265, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
+  m_PrefabInstance: {fileID: 7722910462042814847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7887292724735077175 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 457116272902984264, guid: d23f4cfd587af9d47b8c3a25d14c64df, type: 3}
   m_PrefabInstance: {fileID: 7722910462042814847}
   m_PrefabAsset: {fileID: 0}

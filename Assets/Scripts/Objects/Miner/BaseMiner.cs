@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class BaseMiner : CustomBehaviour
 {
@@ -9,13 +10,19 @@ public class BaseMiner : CustomBehaviour
     #region Fields
     [HideInInspector] public string MinerName;
     [SerializeField] protected TextMeshPro m_NameText;
+    [SerializeField] private SpriteRenderer m_MinerRenderer;
     protected float m_CurrentSpeed;
     public MinerData MinerData;
     [SerializeField] protected Rigidbody2D m_PlayerMinerRB;
     [SerializeField] protected Animator m_MinerAnimator;
+    [SerializeField] private ParticleSystem m_FreezeParticle;
     public int MinerCollectedTreasure;
     [HideInInspector] public TreasureRadar LastTriggedTreasureRadar;
     protected Coroutine m_TreasureHuntCoroutine;
+
+    #region Events
+    public event Action EarnedCoin;
+    #endregion
     [SerializeField] protected BaseMinerAnimation[] m_MinerAnimations;
     #endregion
 
@@ -66,6 +73,7 @@ public class BaseMiner : CustomBehaviour
         {
             LastTriggedTreasureRadar.CanHunt = false;
             StartTreasureHuntCoroutine();
+            LastTriggedTreasureRadar.CachedComponent.SpawnCoin(this);
         }
     }
 
@@ -96,9 +104,7 @@ public class BaseMiner : CustomBehaviour
 
     protected virtual void TreasureHunt()
     {
-        MinerCollectedTreasure++;
-        LastTriggedTreasureRadar.CachedComponent.ResetTreasure();
-        GameManager.Instance.Entities.OrderMinerCollectedTreasure();
+        EarnedCoin?.Invoke();
     }
 
     private Coroutine m_SpeedDefaultCoroutine;
@@ -140,7 +146,9 @@ public class BaseMiner : CustomBehaviour
 
     protected virtual void FreezeMiner()
     {
+        m_MinerRenderer.color = MinerData.FreezeColor;
         m_MinerAnimator.enabled = false;
+        m_FreezeParticle.Play();
         KillAllCoroutine();
     }
 
@@ -174,6 +182,10 @@ public class BaseMiner : CustomBehaviour
 
     public virtual void DissolveMiner()
     {
+        m_MinerRenderer.color = MinerData.DefaultColor;
         m_MinerAnimator.enabled = true;
+        m_FreezeParticle.Stop();
     }
+
+
 }

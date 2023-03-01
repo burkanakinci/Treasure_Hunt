@@ -8,7 +8,7 @@ public class ObjectTags
     public const string STONE = "Stone";
     public const string TREE = "Tree";
     public const string RADAR = "Radar";
-    public const string BOOST= "Boost";
+    public const string BOOST = "Boost";
 }
 
 public class PooledObjectTags
@@ -20,15 +20,17 @@ public class PooledObjectTags
     public const string UP_LOG = "UpLog";
     public const string SIDE_LOG = "SideLog";
     public const string OPPONENT = "Opponent";
-    public const string POUCH_ANIMATION= "PouchAnimation";
-    public const string FREEZE_BOOST= "FreezeBoost";
-    public const string SPEED_BOOST= "SpeedBoost";
+    public const string POUCH_ANIMATION = "PouchAnimation";
+    public const string FREEZE_BOOST = "FreezeBoost";
+    public const string SPEED_BOOST = "SpeedBoost";
+    public const string DIG_DUST_PARTICLE = "DigDustParticle";
+    public const string TREASURE_COIN="TreasureCoin";
 }
 public class AnimationStates
 {
     public const string COUNTDOWN_ANIMATION = "Base Layer.CountDown";
-    public const string HOLE="Base Layer.Hole";
-    public const string POUCH="Base Layer.Pouch";
+    public const string HOLE = "Base Layer.Hole";
+    public const string POUCH = "Base Layer.Pouch";
 }
 public class MinerAnimationParameters
 {
@@ -41,8 +43,8 @@ public class MinerAnimationParameters
 
 public enum MinerAnimations
 {
-    Hole=0,
-    Pouch=1,
+    Hole = 0,
+    Pouch = 1,
 }
 
 public enum ObjectsLayer
@@ -53,7 +55,7 @@ public enum ObjectsLayer
     Tree = 8,
     Log = 9,
     Radar = 10,
-    Boost=11,
+    Boost = 11,
 }
 
 public enum ListOperation
@@ -93,7 +95,7 @@ public enum PlayerMinerStates
     IdlePlayerMinerState = 0,
     RunPlayerMinerState = 1,
     DigPlayerMinerState = 2,
-    FreezePlayerMinerState=3,
+    FreezePlayerMinerState = 3,
 }
 public enum OpponentMinerStates
 {
@@ -101,8 +103,8 @@ public enum OpponentMinerStates
     RunOpponentMinerState = 1,
     SearchTreasureOpponentMinerState = 2,
     DigOpponentMinerState = 3,
-    ReturnOpponentMinerState=4,
-    FreezeOpponentMinerState=5,
+    ReturnOpponentMinerState = 4,
+    FreezeOpponentMinerState = 5,
 }
 
 public enum OpponentDifficulty
@@ -134,12 +136,12 @@ public enum ActiveParents
     Ground = 3,
     Log = 4,
     Opponent = 5,
-    Other=6,
+    Other = 6,
 }
 
 public enum TimerBackgrounds
 {
-    Grey=0,
-    Red=1,
-    
+    Grey = 0,
+    Red = 1,
+
 }

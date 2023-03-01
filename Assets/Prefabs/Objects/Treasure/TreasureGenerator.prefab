@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930708f93e53c1e4983d624d3f5edee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TreasureGeneratorData: {fileID: 11400000, guid: 375b12dd664dc3c459234f69df536cc4, type: 2}
   m_RadarParents: {fileID: 649655669531409668}
   m_TreasureRadars:
   - {fileID: 3724390891246743479}
