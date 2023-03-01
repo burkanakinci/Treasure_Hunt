@@ -106,7 +106,6 @@
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\PlayerMiner.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IBoost.cs" />
-     <Compile Include="Assets\Scripts\Objects\Miner\BoostTrigger.cs" />
      <Compile Include="Assets\OtherPackages\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
      <Compile Include="Assets\Scripts\Objects\Treasure\TreasureGenerator.cs" />

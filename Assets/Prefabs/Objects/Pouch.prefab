@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6016037361619689884}
   - component: {fileID: 8766101650373916760}
+  - component: {fileID: -1588548163911394200}
   m_Layer: 0
   m_Name: Pouch
   m_TagString: Untagged
@@ -78,6 +79,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PooledAnimator: {fileID: 8607557047396165140}
+--- !u!95 &-1588548163911394200
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548887735284959336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88de81b5c9fb7c746880696d1b33ab87, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7957385788322501723
 GameObject:
   m_ObjectHideFlags: 0
