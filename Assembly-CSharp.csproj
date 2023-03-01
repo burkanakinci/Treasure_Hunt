@@ -41,6 +41,7 @@
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\FreezePlayerMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\OpponentMinerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\OpponentMinerStates\DigOpponentMinerState.cs" />
+     <Compile Include="Assets\Scripts\Objects\Treasure\TreasureCoin.cs" />
      <Compile Include="Assets\Scripts\Utilities\Constants.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
@@ -55,6 +56,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\RunPlayerMinerState.cs" />
      <Compile Include="Assets\NiceVibrations\Common\Scripts\MMVibrationManager.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjectScripts\TreasureGeneratorData.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\ParticlePooledObjects.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\BaseMiner.cs" />
@@ -80,6 +82,7 @@
      <Compile Include="Assets\OtherPackages\Joystick Pack\Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\Scripts\Managers\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\UI\Panels\HudPanel.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjectScripts\CoinData.cs" />
      <Compile Include="Assets\Scripts\Objects\AnimationPooledObject.cs" />
      <Compile Include="Assets\Scripts\Managers\VibrationsManager.cs" />
      <Compile Include="Assets\OtherPackages\Joystick Pack\Examples\JoystickSetterExample.cs" />
@@ -110,9 +113,6 @@
      <Compile Include="Assets\Scripts\Utilities\CustomBehaviour.cs" />
      <Compile Include="Assets\Scripts\Objects\Treasure\TreasureGenerator.cs" />
      <Compile Include="Assets\Scripts\UI\LeaderBoard.cs" />
-     <Compile Include="Assets\Scripts\Objects\Treasure\TreasureCoin.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\TreasureGeneratorData.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjectScripts\CoinData.cs" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

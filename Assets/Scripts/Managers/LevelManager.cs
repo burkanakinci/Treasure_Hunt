@@ -191,7 +191,7 @@ public class LevelManager : CustomBehaviour
         {
             m_TempSpawnedOpponent = GameManager.Instance.ObjectPool.SpawnFromPool(
                 (PooledObjectTags.OPPONENT),
-                (Vector2.zero),
+                (UnityEngine.Random.insideUnitCircle * 2.0f),
                 (Quaternion.identity),
                 (GameManager.Instance.Entities.GetActiveParent(ActiveParents.Opponent))
             ).GetGameObject().GetComponent<OpponentMiner>();
