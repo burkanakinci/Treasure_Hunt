@@ -109,37 +109,13 @@ public class OpponentMiner : BaseMiner, IPooledObject
              )
         {
 
-#if UNITY_EDITOR
-            DrawForwardRay(Color.white, _targetPos);
-#endif
             return false;
         }
         else
         {
-#if UNITY_EDITOR
-            DrawForwardRay(Color.black, _targetPos);
-#endif
             return true;
         }
     }
-#if UNITY_EDITOR
-
-    private void DrawForwardRay(Color _drawRayColor, Vector2 _targetPos)
-    {
-        Debug.DrawRay
-        (
-            (m_RayTransform.position + m_RayTransform.up * 0.5f),
-            ((_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized * MinerData.ObstacleRayDistance),
-            (_drawRayColor)
-        );
-        Debug.DrawRay
-        (
-            (m_RayTransform.position - m_RayTransform.up * 0.5f),
-            ((_targetPos - new Vector2(transform.position.x, transform.position.y)).normalized * MinerData.ObstacleRayDistance),
-            (_drawRayColor)
-        );
-    }
-#endif
     #endregion
     [HideInInspector] public Vector2 LastEnteredRadarPos;
     [HideInInspector] public int LastTestedDirection;

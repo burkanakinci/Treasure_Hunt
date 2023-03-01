@@ -141,6 +141,8 @@ MonoBehaviour:
   m_CountdownStartDelay: 3
   m_StartGameButton: {fileID: 201570240}
   m_CountDownAnimator: {fileID: 1483466777}
+  m_CountDownImage: {fileID: 1483466778}
+  m_TransparencySprite: {fileID: 21300000, guid: 9a2ec4aec00ef1441b72ee9a0ac7ed1e, type: 3}
 --- !u!1 &183226509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 252f89d39d7c72f4ca38de491edd10a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a2ec4aec00ef1441b72ee9a0ac7ed1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4239,7 +4241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8843422546706180286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4355,7 +4357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8843422547568775286
 MonoBehaviour:
   m_ObjectHideFlags: 0

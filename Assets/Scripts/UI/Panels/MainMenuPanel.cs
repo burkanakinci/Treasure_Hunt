@@ -11,6 +11,8 @@ public class MainMenuPanel : UIPanel
     [SerializeField] private float m_CountdownStartDelay = 1.0f;
     [SerializeField] private StartGameButton m_StartGameButton;
     [SerializeField] private Animator m_CountDownAnimator;
+    [SerializeField] private Image m_CountDownImage;
+    [SerializeField] private Sprite m_TransparencySprite;
     public override void Initialize(UIManager _uiManager)
     {
         base.Initialize(_uiManager);
@@ -63,6 +65,7 @@ public class MainMenuPanel : UIPanel
     {
         ShowPanel();
         m_CountDownAnimator.enabled = false;
+        m_CountDownImage.sprite=m_TransparencySprite;
         m_Level.text = "Level : " + GameManager.Instance.PlayerManager.GetLevelNumber();
     }
     private void OnDestroy()

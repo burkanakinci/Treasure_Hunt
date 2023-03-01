@@ -111,7 +111,6 @@ public class TreasureGenerator : PooledObject
     {
         m_CoinCounter++;
         yield return new WaitForSeconds(_spawnDelay);
-        Debug.Log("Coin Spawned");
         m_SpawnedTempCoin = GameManager.Instance.ObjectPool.SpawnFromPool(
             (PooledObjectTags.TREASURE_COIN),
             (m_EarnedMiner.transform.position),

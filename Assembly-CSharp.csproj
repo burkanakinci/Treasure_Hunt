@@ -55,7 +55,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\RunPlayerMinerState.cs" />
-     <Compile Include="Assets\NiceVibrations\Common\Scripts\MMVibrationManager.cs" />
+     <Compile Include="Assets\OtherPackages\NiceVibrations\Common\Scripts\MMVibrationManager.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectScripts\TreasureGeneratorData.cs" />
      <Compile Include="Assets\Scripts\Objects\Miner\MinerStateMachine\States\PlayerMinerStates\IdlePlayerMinerState.cs" />
      <Compile Include="Assets\Scripts\Objects\ParticlePooledObjects.cs" />
@@ -120,8 +120,8 @@
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\NiceVibrations\readme.txt" />
-     <None Include="Assets\NiceVibrations\Common\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\OtherPackages\NiceVibrations\readme.txt" />
+     <None Include="Assets\OtherPackages\NiceVibrations\Common\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF.shader" />
@@ -129,7 +129,7 @@
      <None Include="Assets\OtherPackages\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\NiceVibrations\license.txt" />
+     <None Include="Assets\OtherPackages\NiceVibrations\license.txt" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\OtherPackages\Treasure Hunt\AssetFolders\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
      <None Include="Assets\OtherPackages\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
