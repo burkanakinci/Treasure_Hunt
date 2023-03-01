@@ -15,23 +15,4 @@ public class CameraManager : CustomBehaviour<PlayerMiner>
     {
         m_MainCamera.transform.position = CachedComponent.transform.position + (Vector3.forward * m_CameraData.CameraZDistance);
     }
-
-    #region Events 
-    private void OnResetToMainMenu()
-    {
-
-    }
-    private void OnCountdownFinished()
-    {
-    }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
-    private void OnDestroy()
-    {
-    }
-    #endregion
 }

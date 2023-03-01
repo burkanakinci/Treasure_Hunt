@@ -57,15 +57,6 @@ public class Radar : CustomBehaviour
         CurrentRadarTypeValue = -1;
         SetRadarSprite();
     }
-    private void OnCountdownFinished()
-    {
-    }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;

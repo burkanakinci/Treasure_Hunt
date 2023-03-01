@@ -22,7 +22,6 @@ public class FinishPanel : UIPanel
         GameManager.Instance.OnLevelCompleted += OnLevelCompleted;
         GameManager.Instance.OnLevelFailed += ShowPanel;
         GameManager.Instance.OnLevelCompleted += ShowPanel;
-        GameManager.Instance.OnResetToMainMenu += OnResetToMainMenu;
 
         m_FailNextLevelButton.Initialize(_uiManager);
         m_FailNextLevelButton.ButtonClickTweenCallBack = CachedComponent.NextLevelCallBack(false);
@@ -36,9 +35,7 @@ public class FinishPanel : UIPanel
     }
 
     #region Events
-    private void OnResetToMainMenu()
-    {
-    }
+
     private void OnLevelCompleted()
     {
         m_FailCanvas.Close();
@@ -51,8 +48,10 @@ public class FinishPanel : UIPanel
     }
     private void OnDestroy()
     {
+        GameManager.Instance.OnLevelFailed -= OnLevelFailed;
+        GameManager.Instance.OnLevelCompleted -= OnLevelCompleted;
+        GameManager.Instance.OnLevelFailed -= ShowPanel;
         GameManager.Instance.OnLevelCompleted -= ShowPanel;
-        GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;
     }
     #endregion
 

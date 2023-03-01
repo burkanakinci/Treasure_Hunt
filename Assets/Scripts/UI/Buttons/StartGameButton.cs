@@ -22,15 +22,6 @@ public class StartGameButton : UIBaseButton
     {
         m_StartGameButtonCanvasGroup.Open();
     }
-    private void OnCountdownFinished()
-    {
-    }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;

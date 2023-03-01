@@ -13,7 +13,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     [SerializeField] private Transform m_RayTransform;
     #endregion
     public OpponentDifficulty OpponentCurrentDifficulty;
-    
+
     public override void Initialize()
     {
         base.Initialize();
@@ -43,7 +43,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
 
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.IdleOpponentMinerState, true);
 
-        GameManager.Instance.Entities.ManagerMinerList(this,ListOperation.Adding);
+        GameManager.Instance.Entities.ManagerMinerList(this, ListOperation.Adding);
 
         SetMinerName();
 
@@ -53,7 +53,7 @@ public class OpponentMiner : BaseMiner, IPooledObject
     }
     public virtual void OnObjectDeactive()
     {
-        GameManager.Instance.Entities.ManagerMinerList(this,ListOperation.Subtraction);
+        GameManager.Instance.Entities.ManagerMinerList(this, ListOperation.Subtraction);
 
         GameManager.Instance.Entities.OnFreezeAllMiner -= FreezeMiner;
 
@@ -224,21 +224,14 @@ public class OpponentMiner : BaseMiner, IPooledObject
         OnObjectDeactive();
     }
     #region Events 
-    private void OnResetToMainMenu()
-    {
-    }
+
     private void OnCountdownFinished()
     {
         OpponentStateMachine.ChangeState((int)OpponentMinerStates.RunOpponentMinerState);
     }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
     private void OnDestroy()
     {
+        GameManager.Instance.OnCountdownFinished -= OnCountdownFinished;
     }
     #endregion
 }

@@ -33,10 +33,6 @@ public class IncomeDataCreatorEditor : Editor
         {
             levelCreator.CreateLevel();
         }
-        if (GUILayout.Button("LoadData"))
-        {
-            levelCreator.LoadData();
-        }
     }
 
 }

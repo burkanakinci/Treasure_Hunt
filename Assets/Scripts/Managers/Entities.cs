@@ -168,15 +168,7 @@ public class Entities : CustomBehaviour
         m_GroundOnScene.Clear();
         m_TreasureGeneratorOnScene.Clear();
     }
-    private void OnCountdownFinished()
-    {
-    }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
+
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;

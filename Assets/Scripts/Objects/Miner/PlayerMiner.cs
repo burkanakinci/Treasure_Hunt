@@ -152,6 +152,11 @@ public class PlayerMiner : BaseMiner
     }
     private void OnDestroy()
     {
+        GameManager.Instance.Entities.OnFreezeAllMiner -= FreezeMiner;
+        GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;
+        GameManager.Instance.OnCountdownFinished -= OnCountdownFinished;
+        GameManager.Instance.OnLevelCompleted -= OnLevelCompleted;
+        GameManager.Instance.OnLevelFailed -= OnLevelFailed;
     }
     #endregion
 }

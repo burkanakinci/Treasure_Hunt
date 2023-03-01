@@ -65,15 +65,6 @@ public class MainMenuPanel : UIPanel
         m_CountDownAnimator.enabled = false;
         m_Level.text = "Level : " + GameManager.Instance.PlayerManager.GetLevelNumber();
     }
-    private void OnCountdownFinished()
-    {
-    }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;

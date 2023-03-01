@@ -152,12 +152,6 @@ public class Timer : CustomBehaviour
     {
         StartTimerCountDown();
     }
-    private void OnLevelCompleted()
-    {
-    }
-    private void OnLevelFailed()
-    {
-    }
     private void OnDestroy()
     {
         GameManager.Instance.OnResetToMainMenu -= OnResetToMainMenu;

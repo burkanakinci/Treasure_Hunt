@@ -98,10 +98,6 @@ public class LevelDataCreator : MonoBehaviour
     }
     #endregion
 
-    public void LoadData()
-    {
-
-    }
 }
 #endif
 
